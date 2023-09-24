@@ -1,0 +1,61 @@
+i {
+  font-size: 24px !important;
+}
+
+body {
+  padding: 0;
+  height: 96vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-bar {
+  padding: 0.5rem;
+}
+.story-container {
+  width: 1000px;
+  height: 700px;
+  display: flex;
+  background-color: #f9f5e3; /* Beige color for book pages */
+  border: 10px solid #8b4513; /* SaddleBrown color for book cover */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.story-text-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+}
+
+.flex-space {
+  height: 100%;
+  width: 100%;
+}
+
+.story-drawing-container {
+  flex-grow: 2.5;
+  height: 100%;
+  border: 1px solid black;
+}
+
+.story-text {
+  margin: 1rem;
+  font-size: 18px;
+}
+
+.actions-bar {
+  display: flex;
+  padding: 1rem;
+}
+
+.page-number {
+  width: 100%;
+  align-self: center;
+  text-align: center;
+}
