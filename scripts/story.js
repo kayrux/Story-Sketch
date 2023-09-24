@@ -1,0 +1,4 @@
+const story = {
+  title: "",
+  pages: [],
+};
