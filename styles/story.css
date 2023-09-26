@@ -2,6 +2,10 @@ i {
   font-size: 24px !important;
 }
 
+.home-icon {
+  font-size: 30px !important;
+}
+
 body {
   padding: 0;
   height: 96vh;
@@ -9,19 +13,37 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: url("https://i.imgur.com/raiPPvS.jpeg");
 }
 
 .nav-bar {
   padding: 0.5rem;
 }
+
+.icon-button {
+  background: none;
+  cursor: pointer;
+  border: none;
+}
+
+.icon-button:hover {
+  transform: scale(1.2);
+}
 .story-container {
   width: 1000px;
-  height: 700px;
+  height: 650px;
   display: flex;
-  background-color: #f9f5e3; /* Beige color for book pages */
-  border: 10px solid #8b4513; /* SaddleBrown color for book cover */
+  border-left: 10px solid #8b4513; /* SaddleBrown color for book cover */
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 10px 6px 22px -1px rgba(0, 0, 0, 0.62);
+  -moz-box-shadow: 10px 6px 22px -1px rgba(0, 0, 0, 0.62);
+  box-shadow: 10px 6px 22px -1px rgba(0, 0, 0, 0.62);
+ 
+  /* Background idea from https://codepen.io/TheMOZZARELLA/pen/pormjbw */
+  background: url("https://i.imgur.com/0kjMcUe.png");
+  background-size: 1000px;
+  filter: brightness(0.95) sepia(50%) saturate(80%);
+  background-position: center right;
 }
 
 .story-text-container {
@@ -30,7 +52,6 @@ body {
   flex-direction: column;
   width: 100%;
   height: 100%;
-  border: 1px solid black;
 }
 
 .flex-space {
@@ -41,11 +62,10 @@ body {
 .story-drawing-container {
   flex-grow: 2.5;
   height: 100%;
-  border: 1px solid black;
 }
 
 #page-text {
-  margin: 1.5rem;
+  margin: 0 1.5rem 1rem 1.5rem;
   font-size: 22px;
   font-family: cursive;
   line-height: 36px;
@@ -58,6 +78,7 @@ body {
 
 #page-number {
   width: 100%;
+  font-family: cursive;
   align-self: center;
   text-align: center;
 }
