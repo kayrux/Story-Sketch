@@ -168,8 +168,11 @@
 
     penButton.addEventListener("click", () => {
         erasing = false; // Set erasing mode to false
+        doodleContext.strokeStyle = currentColor; // Set the color to the current color
         doodleContext.globalCompositeOperation = "source-over"; // Reset global composite operation to normal (pen) mode
     });
+
+
 
     window.addEventListener("resize", resizeCanvas);
 
@@ -179,13 +182,8 @@
     }
 
     doodleCanvas.addEventListener("mousedown", (e) => {
-        if (erasing) {
-            clearDoodle();
-            erasing = false;
-        } else {
-            drawing = true;
-            [lastX, lastY] = [e.offsetX, e.offsetY];
-        }
+        drawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
     });
 
     doodleCanvas.addEventListener("mousemove", draw);
@@ -195,27 +193,21 @@
     });
 
     function draw(e) {
-        if (!drawing && !erasing) return;
+        if (!drawing) return;
 
-        if (erasing) {
-            doodleContext.clearRect(e.offsetX - 10, e.offsetY - 10, 20, 20);
-        } else {
-            doodleContext.strokeStyle = currentColor;
-            doodleContext.lineWidth = 5;
-            doodleContext.lineCap = "round";
+        doodleContext.lineWidth = erasing ? 20 : 5; // Increase the lineWidth for erasing
+        doodleContext.lineCap = "round";
 
-            doodleContext.beginPath();
-            doodleContext.moveTo(lastX, lastY);
-            doodleContext.lineTo(e.offsetX, e.offsetY);
-            doodleContext.stroke();
+        doodleContext.beginPath();
+        doodleContext.moveTo(lastX, lastY);
+        doodleContext.lineTo(e.offsetX, e.offsetY);
+        doodleContext.stroke();
 
-            // Store the current state for undo
-            undoStack.push(doodleCanvas.toDataURL());
-        }
+        // Store the current state for undo
+        undoStack.push(doodleCanvas.toDataURL());
 
         [lastX, lastY] = [e.offsetX, e.offsetY];
     }
-
 
     clearButton.addEventListener("click", clearDoodle);
 
@@ -242,11 +234,14 @@
 
     colorChooser.addEventListener("input", () => {
         currentColor = colorChooser.value;
+        doodleContext.strokeStyle = currentColor; // Set the strokeStyle to the chosen color
     });
 
-    // Replace this part of your code that handles erasing
+
     eraserButton.addEventListener("click", () => {
         erasing = true;
+        doodleContext.strokeStyle = "white";
+        doodleContext.globalCompositeOperation = "source-over";
     });
 
     saveButton.addEventListener("click", () => {
