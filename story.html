@@ -5,28 +5,275 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
   />
+  <style>
+    /* Styles for doodling container */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: white;
+    }
+
+    .story-drawing-container {
+      display: flex;
+      justify-content: flex-start; /* Adjust alignment to the left */
+      align-items: center;
+      width: 100%;
+      height: 700px;
+    }
+
+    #doodle-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+      height: 620px;
+      max-width: 600px;
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px 0px #000000;
+      margin-left: 10px; /* Add a margin to move it to the right */
+    }
+
+
+    #doodle {
+      width: 100%;
+      height: 600px;
+      background-color: white;
+      cursor: crosshair;
+      margin-top: 20px;
+    }
+
+    #doodle-tools {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-top: 10px;
+      
+    }
+
+    #color-chooser {
+      width: 80px;
+      height: 50px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    /* Add classes for different button colors */
+    .undo-button {
+      background-color: #007bff; /* Blue */
+      color: white;
+      width: 90px;
+      height: 40px;
+    }
+
+    .eraser-button {
+      background-color: #dc3545; /* Red */
+      color: white;
+      width: 90px;
+      height: 40px;
+    }
+
+    .pen-button {
+      background-color: white; /* White background */
+      color: #000000; 
+      width: 90px;
+      height: 40px;
+    }
+    .save-button {
+      background-color: #28a745; /* Green */
+      color: white;
+      width: 90px;
+      height: 40px;
+    }
+
+    .clear-button {
+      background-color: #ffc107; /* Yellow */
+      color: black;
+      width: 90px;
+      height: 40px;
+    }
+
+  </style>
 </head>
 <body>
   <div class="story-container">
-    <div class="story-text-container">
-      <div class="nav-bar">
-        <button onclick="window.location.href = 'index.html';">
-          <i class="fa fa-home"></i>
-        </button>
+    <div class="story-drawing-container">
+      <div class="story-text-container">
+        <div class="nav-bar">
+          <button onclick="window.location.href = 'index.html';">
+            <i class="fa fa-home"></i>
+          </button>
+        </div>
+        <div id="page-text"></div>
+        <div class="flex-space"></div>
+        <div class="actions-bar">
+          <button onclick="onLeftArrowClick()">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          </button>
+          <div id="page-number">pg 1</div>
+          <button onclick="onRightArrowClick()">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
       </div>
-      <div id="page-text"></div>
-      <div class="flex-space"></div>
-      <div class="actions-bar">
-        <button onclick="onLeftArrowClick()">
-          <i class="fa fa-arrow-left" aria-hidden="true"></i>
-        </button>
-        <div id="page-number">pg 1</div>
-        <button onclick="onRightArrowClick()">
-          <i class="fa fa-arrow-right" aria-hidden="true"></i>
-        </button>
+  
+      <!-- Right side (doodling) -->
+      <div id="container">
+        <div id="doodle-container">
+          <canvas id="doodle"></canvas>
+          <div id="doodle-tools">
+            <input type="color" id="color-chooser" value="#000000">
+            <button id="undo-button" class="undo-button">
+              <i class="fa fa-undo"></i> Undo
+            </button>
+            <button id="eraser-button" class="eraser-button">
+              <i class="fa fa-eraser"></i> Eraser
+            </button>
+            <button id="pen-button" class="pen-button">
+              <i class="fa fa-pencil"></i> Pen
+            </button>                       
+            <button id="save-button" class="save-button">
+              <i class="fa fa-save"></i> Save
+            </button>
+            <button id="clear-button" class="clear-button">
+              <i class="fa fa-trash"></i> Clear
+            </button>            
+          </div>
+        </div>
       </div>
     </div>
-    <div class="story-drawing-container"></div>
   </div>
+  
   <script src="scripts/story.js"></script>
+  <script>
+    const doodleCanvas = document.getElementById("doodle");
+    const doodleContext = doodleCanvas.getContext("2d");
+    const colorChooser = document.getElementById("color-chooser");
+    const undoButton = document.querySelector(".undo-button");
+    const eraserButton = document.querySelector(".eraser-button");
+    const saveButton = document.querySelector(".save-button");
+    const clearButton = document.querySelector(".clear-button");
+
+    let currentColor = colorChooser.value;
+    doodleContext.strokeStyle = currentColor;
+
+    let drawing = false;
+    let erasing = false;
+    let lastX = 0;
+    let lastY = 0;
+    const undoStack = [];
+
+    const penButton = document.querySelector(".pen-button");
+
+    penButton.addEventListener("click", () => {
+        erasing = false; // Set erasing mode to false
+        doodleContext.globalCompositeOperation = "source-over"; // Reset global composite operation to normal (pen) mode
+    });
+
+    window.addEventListener("resize", resizeCanvas);
+
+    function resizeCanvas() {
+        doodleCanvas.width = doodleCanvas.parentElement.clientWidth - 20; // Adjust for any padding or margin
+        doodleCanvas.height = doodleContainer.clientHeight - 20; // Adjust for any padding or margin
+    }
+
+    doodleCanvas.addEventListener("mousedown", (e) => {
+        if (erasing) {
+            clearDoodle();
+            erasing = false;
+        } else {
+            drawing = true;
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        }
+    });
+
+    doodleCanvas.addEventListener("mousemove", draw);
+    doodleCanvas.addEventListener("mouseup", () => {
+        drawing = false;
+        erasing = false;
+    });
+
+    function draw(e) {
+        if (!drawing && !erasing) return;
+
+        if (erasing) {
+            doodleContext.clearRect(e.offsetX - 10, e.offsetY - 10, 20, 20);
+        } else {
+            doodleContext.strokeStyle = currentColor;
+            doodleContext.lineWidth = 5;
+            doodleContext.lineCap = "round";
+
+            doodleContext.beginPath();
+            doodleContext.moveTo(lastX, lastY);
+            doodleContext.lineTo(e.offsetX, e.offsetY);
+            doodleContext.stroke();
+
+            // Store the current state for undo
+            undoStack.push(doodleCanvas.toDataURL());
+        }
+
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+    }
+
+
+    clearButton.addEventListener("click", clearDoodle);
+
+    function clearDoodle() {
+        doodleContext.clearRect(0, 0, doodleCanvas.width, doodleCanvas.height);
+        undoStack.length = 0; 
+    }
+
+    undoButton.addEventListener("click", undoDrawing);
+
+    function undoDrawing() {
+        if (undoStack.length > 1) {
+            undoStack.pop();
+            const prevImage = new Image();
+            prevImage.src = undoStack[undoStack.length - 1];
+            prevImage.onload = () => {
+                doodleContext.clearRect(0, 0, doodleCanvas.width, doodleCanvas.height);
+                doodleContext.drawImage(prevImage, 0, 0, doodleCanvas.width, doodleCanvas.height);
+            };
+        } else {
+            clearDoodle();
+        }
+    }
+
+    colorChooser.addEventListener("input", () => {
+        currentColor = colorChooser.value;
+    });
+
+    // Replace this part of your code that handles erasing
+    eraserButton.addEventListener("click", () => {
+        erasing = true;
+    });
+
+    saveButton.addEventListener("click", () => {
+        const doodleImage = doodleCanvas.toDataURL("image/png");
+        const storyText = storybookText.textContent;
+        const canvas = document.createElement("canvas");
+        const context = canvas.getContext("2d");
+        canvas.width = doodleCanvas.width;
+        canvas.height = doodleCanvas.height;
+        context.fillStyle = "white";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(doodleCanvas, 0, 0);
+        context.font = "16px Arial";
+        context.fillStyle = "black";
+        const textLines = storyText.split('\n');
+        textLines.forEach((line, index) => {
+            context.fillText(line, 10, 20 + index * 20);
+        });
+        const combinedImage = canvas.toDataURL("image/png");
+
+        const a = document.createElement("a");
+        a.href = combinedImage;
+        a.download = "story_and_doodle.png";
+        a.click();
+    });
+  </script>
 </body>
+</html>
