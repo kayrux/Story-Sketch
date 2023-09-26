@@ -63,19 +63,31 @@ let currentPage = currentStory.pages[currentPageNumber];
 // GETTING DOCUMENT ELEMENTS BY ID
 let pageTextElement = document.getElementById("page-text");
 let pageNumberElement = document.getElementById("page-number");
+let nextBtnElement = document.getElementById("next-btn");
+let previousBtnElement = document.getElementById("previous-btn");
+
+previousBtnElement.style.opacity = 0;
 
 updatePage();
 
 function onLeftArrowClick() {
+  if (currentPageNumber == 2) {
+    previousBtnElement.style.opacity = 0;
+  }
   if (currentPageNumber > 1) {
     currentPageNumber--;
+    nextBtnElement.style.opacity = 1;
   }
   updatePage();
 }
 
 function onRightArrowClick() {
+  if (currentPageNumber == currentStory.pages.length - 1) {
+    nextBtnElement.style.opacity = 0;
+  }
   if (currentPageNumber < currentStory.pages.length) {
     currentPageNumber++;
+    previousBtnElement.style.opacity = 1;
   }
   updatePage();
 }
