@@ -376,7 +376,7 @@ function handleUserInput() {
 }
 
 // Function to display the story
-f; // Function to display the story
+// Function to display the story
 function displayStory() {
   const chatContainer = document.getElementById("chat-container");
 
@@ -437,28 +437,26 @@ function continueVideo() {
   const userInput = document.getElementById("user-input");
   const submitButton = document.getElementById("submit-button");
   const typingGif = document.getElementById("typing-gif");
-
-  if (video.style.display === "none") {
-    // Show the video and change button text to "Close"
-    video.style.display = "block";
-    chatContainer.style.display = "none";
-    botCharacter.style.display = "none";
-    submitButton.style.display = "none";
-    userInput.style.display = "none";
-
-    video.play(); // Play the video
-    continueButton.innerText = "Close"; // Change button text to "Close"
-  } else {
-    // Hide the video and show chat container and other elements
+  if (video.style.display === "block") {
     video.pause();
     video.style.display = "none";
     chatContainer.style.display = "block";
     botCharacter.style.display = "block";
     submitButton.style.display = "block";
     userInput.style.display = "block";
-
+    typingGif.style.display = "block";
     // Change button text to "See Video" and pause the video if needed
     continueButton.innerText = "See Video";
+  } else {
+    // Show the video and change button text to "Close"
+    video.style.display = "block";
+    chatContainer.style.display = "none";
+    botCharacter.style.display = "none";
+    submitButton.style.display = "none";
+    userInput.style.display = "none";
+    typingGif.style.display = "none";
+    video.play(); // Play the video
+    continueButton.innerText = "Close"; // Change button text to "Close"
   }
 }
 
