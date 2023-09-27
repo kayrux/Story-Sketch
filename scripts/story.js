@@ -2,6 +2,7 @@ const stories = [
   {
     title: "Dino's Adventure: The Magical Tree of Leaves",
     tags: ["trees", "dinosaurs", "leaves"],
+    frontPage: "",
     pages: [
       {
         text: "Once upon a time, in a magical land filled with colorful dinosaurs and towering trees, there lived a young and curious dinosaur named Dino...",
@@ -65,6 +66,8 @@ let pageTextElement = document.getElementById("page-text");
 let pageNumberElement = document.getElementById("page-number");
 let nextBtnElement = document.getElementById("next-btn");
 let previousBtnElement = document.getElementById("previous-btn");
+let rightArrowIconElement = document.getElementById("right-arrow-icon");
+let finishStoryElement = document.getElementById("finish-story");
 
 previousBtnElement.style.opacity = 0;
 
@@ -78,18 +81,23 @@ function onLeftArrowClick() {
     saveImage(); // Save image before page number updates
     currentPageNumber--;
     nextBtnElement.style.opacity = 1;
+    finishStoryElement.style.display = "none";
+    rightArrowIconElement.style.display = "block";
   }
   updatePage();
 }
 
 function onRightArrowClick() {
   if (currentPageNumber == currentStory.pages.length - 1) {
-    nextBtnElement.style.opacity = 0;
+    rightArrowIconElement.style.display = "none";
+    finishStoryElement.style.display = "inline-block";
   }
   if (currentPageNumber < currentStory.pages.length) {
     saveImage(); // Save image before page number updates
     currentPageNumber++;
     previousBtnElement.style.opacity = 1;
+  } else if (currentPageNumber == currentStory.pages.length) {
+    window.location.href = "index.html";
   }
   updatePage();
 }
@@ -101,11 +109,7 @@ function updatePageText() {
 }
 
 function updatePage() {
-  /********************/
-  // Save image to current page, then update to next page
-
   updatePageText();
-  /********************/
 
   if (!doodleCanvas) return;
   clearDoodle();
