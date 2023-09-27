@@ -62,7 +62,8 @@ body {
   cursor: pointer;
   border-radius: 8px 0px 0px 8px;
   background-color: white;
-
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: contain;
 }
 
