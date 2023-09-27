@@ -5,43 +5,43 @@ const stories = [
     pages: [
       {
         text: "Once upon a time, in a magical land filled with colorful dinosaurs and towering trees, there lived a young and curious dinosaur named Dino...",
-        img: "url_to_image1",
+        img: "",
       },
       {
         text: "One sunny morning, Dino decided to embark on an exciting adventure to find the legendary 'Magical Tree of Leaves.' According to the ancient tales, this tree had the most beautiful and colorful leaves that held incredible powers...",
-        img: "url_to_image2",
+        img: "",
       },
       {
         text: "As Dino journeyed through the forest, he met his friends along the way—a wise Triceratops named Tria and a playful Pterodactyl named Pete...",
-        img: "url_to_image3",
+        img: "",
       },
       {
         text: "Through the dense forest and across bubbling streams, they searched for clues that would lead them to the magical tree. Suddenly, they stumbled upon a hidden path filled with colorful flowers and sparkling rocks...",
-        img: "url_to_image4",
+        img: "",
       },
       {
         text: "Following the path, they reached a clearing where an enormous tree stood, covered in leaves of every hue imaginable...",
-        img: "url_to_image5",
+        img: "",
       },
       {
         text: "Excited and in awe, they approached the tree, and as they touched the leaves, something extraordinary happened. The leaves whispered ancient tales and secrets, filling their hearts with wonder and joy...",
-        img: "url_to_image6",
+        img: "",
       },
       {
         text: "Dino, Tria, and Pete learned that the magical leaves could grant a wish to anyone with a kind and pure heart. Overwhelmed with joy, they each made a wish—to spread love, kindness, and happiness throughout their forest and beyond...",
-        img: "url_to_image7",
+        img: "",
       },
       {
         text: "As they made their wishes, the tree sprinkled a dust of magic over them, sealing their promises to the forest and its creatures...",
-        img: "url_to_image8",
+        img: "",
       },
       {
         text: "Their journey back was filled with laughter and excitement as they shared their newfound knowledge with fellow dinosaurs...",
-        img: "url_to_image9",
+        img: "",
       },
       {
         text: "And so, in the heart of the enchanting forest, Dino and his friends continued to spread love and kindness, making their world a better place for all dinosaurs, trees, and leaves, leaving a lasting legacy for generations to come.",
-        img: "url_to_image10",
+        img: "",
       },
     ],
   },
@@ -68,13 +68,14 @@ let previousBtnElement = document.getElementById("previous-btn");
 
 previousBtnElement.style.opacity = 0;
 
-updatePage();
+updatePageText();
 
 function onLeftArrowClick() {
   if (currentPageNumber == 2) {
     previousBtnElement.style.opacity = 0;
   }
   if (currentPageNumber > 1) {
+    saveImage(); // Save image before page number updates
     currentPageNumber--;
     nextBtnElement.style.opacity = 1;
   }
@@ -86,16 +87,35 @@ function onRightArrowClick() {
     nextBtnElement.style.opacity = 0;
   }
   if (currentPageNumber < currentStory.pages.length) {
+    saveImage(); // Save image before page number updates
     currentPageNumber++;
     previousBtnElement.style.opacity = 1;
   }
   updatePage();
 }
 
-function updatePage() {
+function updatePageText() {
   currentPage = currentStory.pages[currentPageNumber - 1];
   pageTextElement.textContent = currentPage.text;
   pageNumberElement.textContent = "pg " + currentPageNumber;
+}
+
+function updatePage() {
+  /********************/
+  // Save image to current page, then update to next page
+
+  updatePageText();
+  /********************/
+
+  if (!doodleCanvas) return;
+  clearDoodle();
+  if (stories[selectedStoryIndex].pages[currentPageNumber - 1].img) {
+    var image = new Image();
+    image.onload = function () {
+      doodleContext.drawImage(image, 0, 0);
+    };
+    image.src = stories[selectedStoryIndex].pages[currentPageNumber - 1].img;
+  }
 }
 
 /*************************************************************************************************************/
@@ -120,8 +140,6 @@ const undoStack = [];
 const penButton = document.querySelector(".pen-button");
 
 context = doodleCanvas.getContext("2d");
-
-// make_base();
 
 penButton.addEventListener("click", () => {
   erasing = false; // Set erasing mode to false
@@ -206,32 +224,5 @@ eraserButton.addEventListener("click", () => {
 
 function saveImage() {
   const doodleImage = doodleCanvas.toDataURL("image/png");
-  // const storyText = storybookText.textContent;
-  const canvas = document.createElement("canvas");
-  const context = canvas.getContext("2d");
-  canvas.width = doodleCanvas.width;
-  canvas.height = doodleCanvas.height;
-  context.fillStyle = "white";
-  context.fillRect(0, 0, canvas.width, canvas.height);
-  context.drawImage(doodleCanvas, 0, 0);
-  context.font = "16px Arial";
-  context.fillStyle = "black";
-  // const textLines = storyText.split('\n');
-  // textLines.forEach((line, index) => {
-  //     context.fillText(line, 10, 20 + index * 20);
-  // });
-  const combinedImage = canvas.toDataURL("image/png");
-
-  const a = document.createElement("a");
-  a.href = combinedImage;
-  a.download = "story_and_doodle.png";
-  a.click();
-}
-
-function make_base() {
-  base_image = new Image();
-  base_image.src = "img/base.png";
-  base_image.onload = function () {
-    context.drawImage(base_image, 0, 0);
-  };
+  stories[selectedStoryIndex].pages[currentPageNumber - 1].img = doodleImage;
 }
