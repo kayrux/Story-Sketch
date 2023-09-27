@@ -8,22 +8,38 @@ i {
 
 body {
   padding: 0;
-  height: 96vh;
+  height: 100vh;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("https://i.imgur.com/raiPPvS.jpeg");
+  /* background: url("https://i.imgur.com/raiPPvS.jpeg"); */
+  background: linear-gradient(0deg, rgba(255,236,164,1) 0%, rgba(186,254,252,1) 100%);
 }
 
 .nav-bar {
-  padding: 0.5rem;
+  display: flex;
+  padding: 1rem;
+  column-gap: 1rem;
+  height: 1.5rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+#title {
+  font-size: 14px;
+  font-weight: bold;
+  max-width: 200px;
 }
 
 .icon-button {
   background: none;
   cursor: pointer;
   border: none;
+}
+
+.arrow-btn {
+  width: 67px;
 }
 
 .icon-button:hover {
@@ -42,7 +58,7 @@ body {
   /* Background idea from https://codepen.io/TheMOZZARELLA/pen/pormjbw */
   background: url("https://i.imgur.com/0kjMcUe.png");
   background-size: 1000px;
-  filter: brightness(0.95) sepia(50%) saturate(80%);
+  filter: brightness(0.97) sepia(50%) saturate(95%);
   background-position: center right;
 }
 
@@ -60,12 +76,11 @@ body {
 }
 
 .story-drawing-container {
-  flex-grow: 2.5;
-  height: 100%;
+  flex: 2;
 }
 
 #page-text {
-  margin: 0 1.5rem 1rem 1.5rem;
+  margin: 0.5rem 1.5rem 1rem 1.5rem;
   font-size: 22px;
   font-family: cursive;
   line-height: 36px;
@@ -81,4 +96,10 @@ body {
   font-family: cursive;
   align-self: center;
   text-align: center;
+}
+
+#finish-story {
+  font-size: 14px;
+  font-weight: bold;
+  display: none;
 }
