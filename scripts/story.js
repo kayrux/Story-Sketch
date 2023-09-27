@@ -97,3 +97,141 @@ function updatePage() {
   pageTextElement.textContent = currentPage.text;
   pageNumberElement.textContent = "pg " + currentPageNumber;
 }
+
+/*************************************************************************************************************/
+/*********************************************** DOODLE CODE *************************************************/
+/*************************************************************************************************************/
+const doodleCanvas = document.getElementById("doodle");
+const doodleContext = doodleCanvas.getContext("2d");
+const colorChooser = document.getElementById("color-chooser");
+const undoButton = document.querySelector(".undo-button");
+const eraserButton = document.querySelector(".eraser-button");
+const clearButton = document.querySelector(".clear-button");
+
+let currentColor = colorChooser.value;
+doodleContext.strokeStyle = currentColor;
+
+let drawing = false;
+let erasing = false;
+let lastX = 0;
+let lastY = 0;
+const undoStack = [];
+
+const penButton = document.querySelector(".pen-button");
+
+context = doodleCanvas.getContext("2d");
+
+// make_base();
+
+penButton.addEventListener("click", () => {
+  erasing = false; // Set erasing mode to false
+  doodleContext.strokeStyle = currentColor; // Set the color to the current color
+  doodleContext.globalCompositeOperation = "source-over"; // Reset global composite operation to normal (pen) mode
+});
+
+window.addEventListener("resize", resizeCanvas);
+
+function resizeCanvas() {
+  doodleCanvas.width = doodleCanvas.parentElement.clientWidth - 20; // Adjust for any padding or margin
+  doodleCanvas.height = doodleContainer.clientHeight - 20; // Adjust for any padding or margin
+}
+
+doodleCanvas.addEventListener("mousedown", (e) => {
+  drawing = true;
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+});
+
+doodleCanvas.addEventListener("mousemove", draw);
+doodleCanvas.addEventListener("mouseup", () => {
+  drawing = false;
+  erasing = false;
+});
+
+function draw(e) {
+  if (!drawing) return;
+
+  doodleContext.lineWidth = erasing ? 20 : 5; // Increase the lineWidth for erasing
+  doodleContext.lineCap = "round";
+
+  doodleContext.beginPath();
+  doodleContext.moveTo(lastX, lastY);
+  doodleContext.lineTo(e.offsetX, e.offsetY);
+  doodleContext.stroke();
+
+  // Store the current state for undo
+  undoStack.push(doodleCanvas.toDataURL());
+
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+}
+
+clearButton.addEventListener("click", clearDoodle);
+
+function clearDoodle() {
+  doodleContext.clearRect(0, 0, doodleCanvas.width, doodleCanvas.height);
+  undoStack.length = 0;
+}
+
+undoButton.addEventListener("click", undoDrawing);
+
+function undoDrawing() {
+  if (undoStack.length > 1) {
+    undoStack.pop();
+    const prevImage = new Image();
+    prevImage.src = undoStack[undoStack.length - 1];
+    prevImage.onload = () => {
+      doodleContext.clearRect(0, 0, doodleCanvas.width, doodleCanvas.height);
+      doodleContext.drawImage(
+        prevImage,
+        0,
+        0,
+        doodleCanvas.width,
+        doodleCanvas.height
+      );
+    };
+  } else {
+    clearDoodle();
+  }
+}
+
+colorChooser.addEventListener("input", () => {
+  currentColor = colorChooser.value;
+  doodleContext.strokeStyle = currentColor; // Set the strokeStyle to the chosen color
+});
+
+eraserButton.addEventListener("click", () => {
+  erasing = true;
+  doodleContext.strokeStyle = "white";
+  doodleContext.globalCompositeOperation = "source-over";
+});
+
+function saveImage() {
+  const doodleImage = doodleCanvas.toDataURL("image/png");
+  // const storyText = storybookText.textContent;
+  const canvas = document.createElement("canvas");
+  const context = canvas.getContext("2d");
+  canvas.width = doodleCanvas.width;
+  canvas.height = doodleCanvas.height;
+  context.fillStyle = "white";
+  context.fillRect(0, 0, canvas.width, canvas.height);
+  context.drawImage(doodleCanvas, 0, 0);
+  context.font = "16px Arial";
+  context.fillStyle = "black";
+  // const textLines = storyText.split('\n');
+  // textLines.forEach((line, index) => {
+  //     context.fillText(line, 10, 20 + index * 20);
+  // });
+  const combinedImage = canvas.toDataURL("image/png");
+
+  const a = document.createElement("a");
+  a.href = combinedImage;
+  a.download = "story_and_doodle.png";
+  a.click();
+}
+
+function make_base() {
+  base_image = new Image();
+  base_image.src = "img/base.png";
+  base_image.onload = function () {
+    context.drawImage(base_image, 0, 0);
+  };
+}
