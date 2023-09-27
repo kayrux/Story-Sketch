@@ -26,6 +26,10 @@ body {
   border: none;
 }
 
+.arrow-btn {
+  width: 67px;
+}
+
 .icon-button:hover {
   transform: scale(1.2);
 }
@@ -80,4 +84,10 @@ body {
   font-family: cursive;
   align-self: center;
   text-align: center;
+}
+
+#finish-story {
+  font-size: 14px;
+  font-weight: bold;
+  display: none;
 }

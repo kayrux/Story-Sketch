@@ -90,14 +90,15 @@
       <div class="actions-bar">
         <button
           onclick="onLeftArrowClick()"
-          class="icon-button"
+          class="icon-button arrow-btn"
           id="previous-btn"
         >
           <i class="fa fa-arrow-left" aria-hidden="true"></i>
         </button>
         <div id="page-number">pg 1</div>
-        <button onclick="onRightArrowClick()" class="icon-button" id="next-btn">
-          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        <button onclick="onRightArrowClick()" class="icon-button arrow-btn" id="next-btn">
+          <i class="fa fa-arrow-right" aria-hidden="true" id="right-arrow-icon"></i>
+          <span id="finish-story">Complete<i class="fa fa-book" aria-hidden="true" id="book-icon"></i></span>
         </button>
       </div>
     </div>
