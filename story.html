@@ -79,7 +79,7 @@
     <div class="story-text-container">
       <div class="nav-bar">
         <button
-          onclick="window.location.href = 'index.html';"
+          onclick="onHomeClicked()"
           class="icon-button"
         >
           <i class="fa fa-home home-icon"></i>
@@ -126,5 +126,8 @@
   </div>
   
   <script src="scripts/story.js"></script>
+  <!-- sets the canvas to page 1 image onload -->
+  <script>updatePage();</script>
+
 </body>
 </html>
