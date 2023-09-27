@@ -46,6 +46,43 @@ let stories = [
       },
     ],
   },
+  {
+    title: "The Adventure of Sammy the Snail",
+    pages: [
+      {
+        text: "Once upon a time, in a magical garden, lived a curious snail named Sammy. Sammy was unlike any other snail in the garden. Sammy had a dream - a dream to see the world beyond the garden.",
+        img: "",
+      },
+      {
+        text: "Sammy spent his days exploring the garden, talking to the wise old trees and friendly ladybugs. One day, while chatting with a butterfly named Bella, Sammy shared his dream of adventure.",
+        img: "",
+      },
+      {
+        text: "Bella said, 'Why don't you go on an adventure right here in the garden? There's so much to discover and learn!' Sammy thought this was a splendid idea and set off on his very first adventure.",
+        img: "",
+      },
+      {
+        text: "Sammy discovered a hidden trail behind the flower bushes. He followed it and found a secret garden with magical glowing flowers. 'Wow!' Sammy exclaimed, mesmerized by the beauty.",
+        img: "",
+      },
+      {
+        text: "In this magical garden, Sammy met a wise old snail named Grandpa Sheldon. Grandpa Sheldon shared stories of his own adventures and gave Sammy a special amulet that would guide him on his journey.",
+        img: "",
+      },
+      {
+        text: "With the amulet around his neck, Sammy felt a burst of courage. He embarked on a grand adventure, meeting friendly creatures and overcoming challenges. He realized that even small creatures like him could have big adventures.",
+        img: "",
+      },
+      {
+        text: "Sammy returned to his garden, filled with excitement and new stories to tell. He knew that his dream of adventure had come true, right in his own backyard.",
+        img: "",
+      },
+      {
+        text: "And so, Sammy the Snail continued to have many more exciting adventures in the garden, sharing his tales with all his friends, and inspiring them to dream big too.",
+        img: "",
+      },
+    ],
+  },
 ];
 
 const storedStoriesJSON = localStorage.getItem("stories");
@@ -54,7 +91,14 @@ const storedStoriesJSON = localStorage.getItem("stories");
 // Otherwise use the hardcoded stories and save it to local storage
 if (storedStoriesJSON) {
   // Parse the JSON string back into a JavaScript object
-  stories = JSON.parse(storedStoriesJSON);
+  retrievedStories = JSON.parse(storedStoriesJSON);
+  if (stories.length <= retrievedStories.length) {
+    console.log("Setting to retrieved stories");
+    stories = retrievedStories;
+  } else {
+    console.log("Setting to database stories");
+    localStorage.setItem("stories", JSON.stringify(stories));
+  }
   console.log("Stories retrieved", stories);
 } else {
   console.log("No stories found in local storage. Adding stories...");
@@ -67,7 +111,8 @@ if (storedStoriesJSON) {
 
 const storiesContainer = document.getElementById("stories-container");
 
-function createStoryCard(story) {
+function createStoryCard(story, index) {
+  console.log(index);
   const storyCard = document.createElement("div");
   storyCard.classList.add("story-card");
 
@@ -80,6 +125,10 @@ function createStoryCard(story) {
   const book = document.createElement("div");
   book.classList.add("book");
   bookOuter.appendChild(book);
+
+  book.addEventListener("click", () => {
+    window.location.href = "story.html?storyIndex=" + index;
+  });
 
   if (story.pages[0].img) {
     image = new Image();
@@ -97,9 +146,11 @@ function createStoryCard(story) {
 }
 
 function populateStories() {
+  let i = 0;
   for (const story of stories) {
-    const storyCard = createStoryCard(story);
+    const storyCard = createStoryCard(story, i);
     storiesContainer.appendChild(storyCard);
+    i++;
   }
 }
 
