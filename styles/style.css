@@ -75,3 +75,14 @@ body {
 .book:hover {
   transform: rotateY(-15deg) scale(1.05);
 }
+
+/* Add this to your existing style.css or create a new CSS file */
+#chat-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-width: 4000px; /* Adjust the width as needed */
+  margin: 20px auto;
+  background-color: #f0f0f0;
+  overflow-y: scroll;
+  max-height: 1000px; /* Adjust the height as needed */
+}
