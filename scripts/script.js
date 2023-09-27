@@ -156,3 +156,312 @@ function populateStories() {
 
 // Call the function to populate the stories
 populateStories();
+
+const chatPrompts = {
+  jess: [
+    {
+      question:
+        "Where does Jess live? Is it in a big city, a small town, or maybe in a magical forest?",
+      answer: "She lives in a new planet made of candy",
+    },
+    {
+      question:
+        "What is the most amazing adventure or quest that Jess goes on in the candy planet? Is there a special mission or something magical that happens to her?",
+      answer: "There's a problem with cavities",
+    },
+    {
+      question:
+        "Who are Jess's friends on this candy planet? Do they have any special abilities or qualities that could help them solve the problem of cavities?",
+      answer: "She has a gingerbread friend named Ginger",
+    },
+    {
+      question:
+        "How does Ginger help Jess and their friends tackle the problem of cavities in the candy planet? Does Ginger have any special skills or ideas to share?",
+      answer: "He knows the way to a dentist",
+    },
+    {
+      question:
+        "What challenges or obstacles do they face on their journey to find a dentist in the candy planet? Are there any fun or exciting moments along the way?",
+      answer: "They see different candy on different planets",
+    },
+  ],
+  nick: [
+    {
+      question:
+        "Where does Nick live? Is it in a big city, a small town, or maybe in a magical forest?",
+      answer: "He lives in a treehouse in the enchanted forest",
+    },
+    {
+      question:
+        "What is the most amazing adventure or quest that Nick goes on in the enchanted forest? Is there a special mission or something magical that happens to him?",
+      answer: "He discovers a hidden treasure guarded by talking animals",
+    },
+    {
+      question:
+        "Who are Nick's friends in the enchanted forest? Do they have any special abilities or qualities that could help them find the hidden treasure?",
+      answer:
+        "His friends are a wise owl, a mischievous squirrel, and a brave rabbit",
+    },
+    {
+      question:
+        "How do Nick and his friends outsmart the talking animals and claim the hidden treasure as their own? Do they learn any valuable lessons along the way?",
+      answer:
+        "They use teamwork and kindness to befriend the animals, and they learn that cooperation is the key to success",
+    },
+    {
+      question:
+        "What happens to the hidden treasure once Nick and his friends have it? Does it bring good fortune or unexpected challenges?",
+      answer:
+        "They use the treasure to improve the enchanted forest and share its benefits with all the magical creatures",
+    },
+  ],
+  winston: [
+    {
+      question:
+        "Where does Winston live? Is it in a big city, a small town, or maybe in a magical forest?",
+      answer: "He lives in a bustling big city called Metroville",
+    },
+    {
+      question:
+        "What is the most amazing adventure or quest that Winston goes on in Metroville? Is there a special mission or something extraordinary that happens to him?",
+      answer:
+        "He becomes a superhero and joins forces with other heroes to save the city from a supervillain",
+    },
+    {
+      question:
+        "Who are Winston's superhero friends in Metroville? Do they have unique superpowers or gadgets that help them in their mission?",
+      answer:
+        "His friends are Captain Thunder, Laserbeam Girl, and Techno-Wizard, each with their own incredible abilities",
+    },
+    {
+      question:
+        "How do Winston and his superhero friends defeat the supervillain and save Metroville from destruction? Do they face any unexpected challenges along the way?",
+      answer:
+        "They combine their powers and use teamwork to outsmart the supervillain, but they face several close calls and must stay united",
+    },
+    {
+      question:
+        "What does Winston do when there are no supervillains to defeat? Does he use his powers for good in other ways, or does he face new challenges in his everyday life?",
+      answer:
+        "Winston continues to protect Metroville from threats, but he also uses his abilities to help the community and make the city a better place",
+    },
+  ],
+};
+
+const synth = window.speechSynthesis; // Initialize the speech synthesis
+
+let currentPromptIndex = 0;
+let isStoryDisplayed = false;
+let isNameSet = false; // To track if the user's name has been set
+
+// Function to display chat messages
+function displayMessages() {
+  const chatContainer = document.getElementById("chat-container");
+
+  if (!isNameSet) {
+    // Display the initial bot message to ask for the user's name
+    const initialBotMessage = document.createElement("div");
+    initialBotMessage.classList.add("message", "bot");
+    initialBotMessage.innerText =
+      "Bot: Welcome! Let's create a story together. I'll ask you questions, and you can provide answers. First, please tell me your name (Jess, Nick, or Winston):";
+    chatContainer.appendChild(initialBotMessage);
+
+    // Read the initial message aloud
+    readAloud(
+      "Welcome! Let's create a story together. I'll ask you questions, and you can provide answers. First, please tell me your name (Jess, Nick, or Winston):"
+    );
+
+    // Set isNameSet to true to prevent asking for the name again
+    isNameSet = true;
+  }
+
+  // Display the first bot question
+  const firstPrompt = chatPrompts.jess[currentPromptIndex];
+  const botMessageElement = document.createElement("div");
+  botMessageElement.classList.add("message", "bot");
+  botMessageElement.innerText = firstPrompt.question;
+  chatContainer.appendChild(botMessageElement);
+
+  // Read the first question aloud
+  readAloud(firstPrompt.question);
+}
+
+// Function to read text aloud
+function readAloud(text) {
+  const utterance = new SpeechSynthesisUtterance(text);
+  const typingGif = document.getElementById("typing-gif");
+
+  // Show the typing GIF while speaking
+  typingGif.style.display = "inline";
+
+  synth.speak(utterance);
+
+  utterance.onend = function () {
+    // Hide the typing GIF when speech synthesis is done
+    typingGif.style.display = "none";
+  };
+}
+
+// Function to handle user input
+// Function to handle user input
+// Function to handle user input
+function handleUserInput() {
+  const userInput = document.getElementById("user-input").value;
+  const chatContainer = document.getElementById("chat-container");
+
+  if (isStoryDisplayed) {
+    // If the story is already displayed, tell the user to try again
+    const errorMessageElement = document.createElement("div");
+    errorMessageElement.classList.add("message", "bot");
+    errorMessageElement.innerText =
+      "Bot: Please try again or continue the story.";
+    chatContainer.appendChild(errorMessageElement);
+    readAloud("Please try again or continue the story.");
+
+    // Clear the input field
+    document.getElementById("user-input").value = "";
+    return;
+  }
+
+  if (userInput) {
+    // Display user message
+    const userMessageElement = document.createElement("div");
+    userMessageElement.classList.add("message", "user");
+    userMessageElement.innerText = `You: ${userInput}`;
+    chatContainer.appendChild(userMessageElement);
+
+    if (!isNameSet) {
+      // Check if the user input is one of the accepted names
+      const name = userInput.toLowerCase();
+      if (name === "jess" || name === "nick" || name === "winston") {
+        // Set the name and proceed to the next question set
+        isNameSet = true;
+        currentCharacter = name; // Set the current character
+        currentPromptIndex++; // Skip the name question
+      } else {
+        // Ask for the name again if it's not recognized
+        const errorMessageElement = document.createElement("div");
+        errorMessageElement.classList.add("message", "bot");
+        errorMessageElement.innerText =
+          "Bot: Please choose a valid name (Jess, Nick, or Winston).";
+        chatContainer.appendChild(errorMessageElement);
+        readAloud("Please choose a valid name (Jess, Nick, or Winston).");
+      }
+    } else {
+      // Skip validation for all questions (2 to 8)
+      currentPromptIndex++;
+    }
+
+    if (currentPromptIndex < chatPrompts.jess.length) {
+      // Display the next bot prompt based on the chosen name
+      const name = isNameSet ? currentCharacter.toLowerCase() : "jess";
+      const nextPrompt = chatPrompts[name][currentPromptIndex];
+      const botMessageElement = document.createElement("div");
+      botMessageElement.classList.add("message", "bot");
+      botMessageElement.innerText = nextPrompt.question;
+      chatContainer.appendChild(botMessageElement);
+      readAloud(nextPrompt.question);
+    } else {
+      // All prompts answered, display the story
+      isStoryDisplayed = true;
+      displayStory();
+    }
+
+    // Clear the input field
+    document.getElementById("user-input").value = "";
+
+    // Smoothly scroll to the bottom of the chat container
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+  }
+}
+
+// Function to display the story
+f; // Function to display the story
+function displayStory() {
+  const chatContainer = document.getElementById("chat-container");
+
+  // Your story content goes here
+  let storyContent = "";
+
+  switch (currentCharacter.toLowerCase()) {
+    case "jess":
+      storyContent = `
+  Story 1: This is Jess's story.
+  // Insert Jess's story content here.
+`;
+      break;
+
+    case "nick":
+      storyContent = `
+  Story 2: This is Nick's story.
+  // Insert Nick's story content here.
+`;
+      break;
+
+    case "winston":
+      storyContent = `
+  Story 3: This is Winston's story.
+  // Insert Winston's story content here.
+`;
+      break;
+
+    default:
+      // Handle the case where an unsupported character name is entered
+      storyContent = "Sorry, we couldn't find a story for that character.";
+      break;
+  }
+
+  // Display the story in the chat container
+  const storyMessageElement = document.createElement("div");
+  storyMessageElement.classList.add("message", "bot");
+  storyMessageElement.innerHTML = `Bot: ${storyContent}`;
+  chatContainer.appendChild(storyMessageElement);
+
+  // Read the story aloud
+  readAloud(storyContent);
+
+  // Show the "Continue" button
+  const continueButton = document.getElementById("continue-button");
+  continueButton.style.display = "inline";
+
+  // Smoothly scroll to the bottom of the chat container
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+// Function to continue the video
+function continueVideo() {
+  const video = document.getElementById("video");
+  const chatContainer = document.getElementById("chat-container");
+  const continueButton = document.getElementById("continue-button");
+  const botCharacter = document.getElementById("bot-character");
+  const userInput = document.getElementById("user-input");
+  const submitButton = document.getElementById("submit-button");
+  const typingGif = document.getElementById("typing-gif");
+
+  if (video.style.display === "none") {
+    // Show the video and change button text to "Close"
+    video.style.display = "block";
+    chatContainer.style.display = "none";
+    botCharacter.style.display = "none";
+    submitButton.style.display = "none";
+    userInput.style.display = "none";
+
+    video.play(); // Play the video
+    continueButton.innerText = "Close"; // Change button text to "Close"
+  } else {
+    // Hide the video and show chat container and other elements
+    video.pause();
+    video.style.display = "none";
+    chatContainer.style.display = "block";
+    botCharacter.style.display = "block";
+    submitButton.style.display = "block";
+    userInput.style.display = "block";
+
+    // Change button text to "See Video" and pause the video if needed
+    continueButton.innerText = "See Video";
+  }
+}
+
+// Call the function to display chat messages
+// added code below for the stories container.
+displayMessages();
