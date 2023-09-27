@@ -3,6 +3,7 @@ body {
   padding: 0;
   width: 100vw;
   height: 100vh;
+  background: linear-gradient(0deg, rgba(255,236,164,1) 0%, rgba(186,254,252,1) 100%);
 
   /* background: url("https://media.discordapp.net/attachments/1149760173079003140/1156284132490494064/image.png?ex=65146903&is=65131783&hm=39ce88312e7b4242c6ae01ca5707e20144178b26b300c5b100b8616e0c46fbd6&=&width=601&height=588"); */
 }
@@ -23,22 +24,24 @@ body {
 #stories-container {
   margin-top: 2rem;
   height: 30rem;
-  background-color: white;
+  /* background-color: white;
   border-radius: 10px;
   -webkit-box-shadow: -1px 5px 32px -3px rgba(0,0,0,0.75);
   -moz-box-shadow: -1px 5px 32px -3px rgba(0,0,0,0.75);
-  box-shadow: -1px 5px 32px -3px rgba(0,0,0,0.75);
+  box-shadow: -1px 5px 32px -3px rgba(0,0,0,0.75); */
   display: flex;
   column-gap: 1rem;
   padding: 1rem;
 
-  background: linear-gradient(0deg, rgba(255,236,164,1) 0%, rgba(186,254,252,1) 100%);
 }
 
 .book-title {
+  font-family: cursive;
   font-weight: bold;
   font-size: 16px;
   margin-bottom: 10px;
+  height: 50px;
+  overflow: hidden;
 }
 
 .book-outer {
@@ -46,7 +49,6 @@ body {
   width: 120px;
   height: 160px;
   background-color: transparent;
-
 }
 .book {
   width: 100%;
@@ -60,7 +62,8 @@ body {
   cursor: pointer;
   border-radius: 8px 0px 0px 8px;
   background-color: white;
-
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: contain;
 }
 
