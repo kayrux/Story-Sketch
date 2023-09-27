@@ -8,12 +8,13 @@ i {
 
 body {
   padding: 0;
-  height: 96vh;
+  height: 100vh;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("https://i.imgur.com/raiPPvS.jpeg");
+  /* background: url("https://i.imgur.com/raiPPvS.jpeg"); */
+  background: linear-gradient(0deg, rgba(255,236,164,1) 0%, rgba(186,254,252,1) 100%);
 }
 
 .nav-bar {
@@ -57,7 +58,7 @@ body {
   /* Background idea from https://codepen.io/TheMOZZARELLA/pen/pormjbw */
   background: url("https://i.imgur.com/0kjMcUe.png");
   background-size: 1000px;
-  filter: brightness(0.95) sepia(50%) saturate(80%);
+  filter: brightness(0.97) sepia(50%) saturate(95%);
   background-position: center right;
 }
 
