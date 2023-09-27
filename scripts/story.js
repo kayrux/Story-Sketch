@@ -62,6 +62,7 @@ let currentPageNumber = 1;
 let currentPage = currentStory.pages[currentPageNumber];
 
 // GETTING DOCUMENT ELEMENTS BY ID
+let storyTitle = document.getElementById("title");
 let pageTextElement = document.getElementById("page-text");
 let pageNumberElement = document.getElementById("page-number");
 let nextBtnElement = document.getElementById("next-btn");
@@ -70,7 +71,7 @@ let rightArrowIconElement = document.getElementById("right-arrow-icon");
 let finishStoryElement = document.getElementById("finish-story");
 
 previousBtnElement.style.opacity = 0;
-
+storyTitle.textContent = currentStory.title;
 updatePageText();
 
 function onLeftArrowClick() {
