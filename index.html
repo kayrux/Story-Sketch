@@ -96,6 +96,8 @@
       font-size: 18px;
     }
   </style>
+    <script src="scripts/script.js"></script>
+
   <script>
     const chatPrompts = {
       jess: [
@@ -380,6 +382,7 @@ function continueVideo() {
 
 
     // Call the function to display chat messages
+    // added code below for the stories container. 
     displayMessages();
   </script>
 </head>
@@ -388,7 +391,10 @@ function continueVideo() {
   <div class="title">Welcome to ChatBot Adventures!</div>
   <button onclick="window.location.href = 'story.html';">Start Drawing</button>
   <button onclick="window.location.href = 'help.html';">Help</button>
-
+  
+  <div class="content-container">
+    <div id="stories-container"></div>
+  </div>
   <!-- Video container -->
   <div id="video-container">
     <video id="video" controls>
