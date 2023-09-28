@@ -348,7 +348,14 @@ function handleUserInput() {
       // Skip validation for all questions (2 to 8)
       currentPromptIndex++;
     }
+    if (!isNameSet) {
+      // Clear the input field
+      document.getElementById("user-input").value = "";
 
+      // Smoothly scroll to the bottom of the chat container
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+      return;
+    }
     if (currentPromptIndex < chatPrompts.jess.length) {
       // Display the next bot prompt based on the chosen name
       const name = isNameSet ? currentCharacter.toLowerCase() : "jess";
