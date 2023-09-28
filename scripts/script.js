@@ -271,8 +271,7 @@ function displayMessages() {
       "Welcome! Let's create a story together. I'll ask you questions, and you can provide answers. First, please tell me your name (Jess, Nick, or Winston):"
     );
 
-    // Set isNameSet to true to prevent asking for the name again
-    isNameSet = true;
+    return;
   }
 
   // Display the first bot question
@@ -302,8 +301,6 @@ function readAloud(text) {
   };
 }
 
-// Function to handle user input
-// Function to handle user input
 // Function to handle user input
 function handleUserInput() {
   const userInput = document.getElementById("user-input").value;
@@ -351,7 +348,14 @@ function handleUserInput() {
       // Skip validation for all questions (2 to 8)
       currentPromptIndex++;
     }
+    if (!isNameSet) {
+      // Clear the input field
+      document.getElementById("user-input").value = "";
 
+      // Smoothly scroll to the bottom of the chat container
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+      return;
+    }
     if (currentPromptIndex < chatPrompts.jess.length) {
       // Display the next bot prompt based on the chosen name
       const name = isNameSet ? currentCharacter.toLowerCase() : "jess";
