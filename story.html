@@ -92,8 +92,8 @@
 
     #pen-size-container {
       position: absolute;
-      top: 50%; /* Adjust the top position as needed */
-      right: -200px; /* Adjust the right position as needed */
+      top: 5.5%; /* Adjust the top position as needed */
+      right: 70px; /* Adjust the right position as needed */
       transform: translate(0, -50%); /* Center vertically */
       display: flex;
       flex-direction: column;
@@ -105,12 +105,11 @@
     }
 
     #pen-size {
-      width: 250px; /* Adjust the width as needed */
-      height: 200px; /* Adjust the height as needed */
-      transform: rotate(-90deg); /* Rotate the slider to make it vertical */
-      background: linear-gradient(to bottom, #000, #fff); /* Black to white gradient background */
-      border: 100px solid #000; /* Black border */
+      width: 500px; 
+      height: 40px; 
+      background: #ccc;
     }
+
     
   </style>
 </head>
@@ -141,8 +140,11 @@
         <div id="doodle-container">
           <!-- Vertical pen size slider -->
           <div id="pen-size-container">
-            <input type="range" id="pen-size" min="1" max="100" value="50">
+              <div id="pen-size-wrapper">
+                  <input type="range" id="pen-size" min="1" max="100" value="50">
+              </div>
           </div>
+        
           <canvas id="doodle" width="600px" height="550px"></canvas>
           <div id="doodle-tools">
             <input type="color" id="color-chooser" value="#000000">
@@ -188,9 +190,8 @@
         erasing = false; // Set erasing mode to false
         doodleContext.strokeStyle = currentColor; // Set the color to the current color
         doodleContext.globalCompositeOperation = "source-over"; // Reset global composite operation to normal (pen) mode
+        updatePenSize(); // Update the pen size based on pen mode
     });
-
-
 
     window.addEventListener("resize", resizeCanvas);
 
@@ -204,16 +205,18 @@
         [lastX, lastY] = [e.offsetX, e.offsetY];
     });
 
-    doodleCanvas.addEventListener("mousemove", draw);
+    doodleCanvas.addEventListener("mousemove", (e) => {
+        if (e.buttons !== 1) return; // Check if left mouse button is pressed
+        drawing = true;
+        draw(e);
+    });
+
     doodleCanvas.addEventListener("mouseup", () => {
         drawing = false;
         erasing = false;
     });
 
     function draw(e) {
-        if (!drawing) return;
-
-        doodleContext.lineWidth = erasing ? 20 : 5; // Increase the lineWidth for erasing
         doodleContext.lineCap = "round";
 
         doodleContext.beginPath();
@@ -227,19 +230,22 @@
         [lastX, lastY] = [e.offsetX, e.offsetY];
     }
 
+
     clearButton.addEventListener("click", clearDoodle);
 
     function updatePenSize() {
-      const penSizeInput = document.getElementById("pen-size");
-      const penSizeValue = penSizeInput.value;
-      doodleContext.lineWidth = (penSizeValue / 100) * 20; // Adjust the range and scale as needed
+        const penSizeValue = parseInt(document.getElementById("pen-size").value, 10);
+        doodleContext.lineWidth = penSizeValue;
+        console.log("Pen Size:", penSizeValue);
     }
+
+
+
+    updatePenSize(); // Initialize the pen size on page load
 
     // Add an event listener to the pen size input
     const penSizeInput = document.getElementById("pen-size");
     penSizeInput.addEventListener("input", updatePenSize);
-
-
 
     function clearDoodle() {
         doodleContext.clearRect(0, 0, doodleCanvas.width, doodleCanvas.height);
@@ -272,7 +278,9 @@
         erasing = true;
         doodleContext.strokeStyle = "white";
         doodleContext.globalCompositeOperation = "source-over";
+        updatePenSize(); // Update the pen size based on erasing mode
     });
+
 
   </script>
 </body>
