@@ -126,12 +126,11 @@ const undoStack = [];
 
 const penButton = document.querySelector(".pen-button");
 
-context = doodleCanvas.getContext("2d");
-
 penButton.addEventListener("click", () => {
   erasing = false; // Set erasing mode to false
   doodleContext.strokeStyle = currentColor; // Set the color to the current color
   doodleContext.globalCompositeOperation = "source-over"; // Reset global composite operation to normal (pen) mode
+  updatePenSize(); // Update the pen size based on pen mode
 });
 
 window.addEventListener("resize", resizeCanvas);
@@ -146,16 +145,18 @@ doodleCanvas.addEventListener("mousedown", (e) => {
   [lastX, lastY] = [e.offsetX, e.offsetY];
 });
 
-doodleCanvas.addEventListener("mousemove", draw);
+doodleCanvas.addEventListener("mousemove", (e) => {
+  if (e.buttons !== 1) return; // Check if left mouse button is pressed
+  drawing = true;
+  draw(e);
+});
+
 doodleCanvas.addEventListener("mouseup", () => {
   drawing = false;
   erasing = false;
 });
 
 function draw(e) {
-  if (!drawing) return;
-
-  doodleContext.lineWidth = erasing ? 20 : 5; // Increase the lineWidth for erasing
   doodleContext.lineCap = "round";
 
   doodleContext.beginPath();
@@ -170,6 +171,18 @@ function draw(e) {
 }
 
 clearButton.addEventListener("click", clearDoodle);
+
+function updatePenSize() {
+  const penSizeValue = parseInt(document.getElementById("pen-size").value, 10);
+  doodleContext.lineWidth = penSizeValue;
+  console.log("Pen Size:", penSizeValue);
+}
+
+updatePenSize(); // Initialize the pen size on page load
+
+// Add an event listener to the pen size input
+const penSizeInput = document.getElementById("pen-size");
+penSizeInput.addEventListener("input", updatePenSize);
 
 function clearDoodle() {
   doodleContext.clearRect(0, 0, doodleCanvas.width, doodleCanvas.height);
@@ -207,6 +220,7 @@ eraserButton.addEventListener("click", () => {
   erasing = true;
   doodleContext.strokeStyle = "white";
   doodleContext.globalCompositeOperation = "source-over";
+  updatePenSize(); // Update the pen size based on erasing mode
 });
 
 function saveImage() {
