@@ -1,425 +1,196 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="stylesheet" href="styles/style.css" />
-  <style>
-    /* Add chat styles for children */
-    #chat-container {
-      border: 2px solid #6FB4FF;
-      padding: 10px;
-      width: 800px; /* Increase the width for more space */
-      height: 500px; /* Increase the height for more space */
-      margin: 20px auto;
-      background-color: #F8F8F8;
-      overflow-y: scroll;
-      border-radius: 20px;
-      left: 60px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      position: relative; /* For positioning the bot character */
-      display: block; /* Show the chat container initially */
-    }
-    .message {
-      margin-bottom: 10px;
-      padding: 10px;
-      border-radius: 10px;
-      position: relative;
-      left: auto;
-      font-size: 18px;
-    }
-    .user {
-      text-align: right;
-      background-color: #6FB4FF;
-      color: white;
-    }
-    .bot {
-      text-align: left;
-      background-color: #FFA07A;
-      color: white;
-    }
-    /* Style for the user input field and submit button */
-    #user-input {
-      width: 650px; /* Match the width of the chat container */
-      padding: 15px;
-      position: relative;
-      left: 220px;
-      font-size: 18px;
-      border: none;
-      margin: 20px;
-      border-radius: 20px;
-      outline: 2px solid #6FB4FF; /* Add an outline to the input field */
-      display: block; /* Show the input field initially */
-    }
-    #submit-button {
-      display: block; /* Show the submit button initially */
-      position: relative;
-      top: -70px;
-      left: 950px;
-      width: 100px;
-      height: 50px;
-    }
-    /* Bot character */
-    #bot-character {
-      width: 200px; /* Adjust the size as needed */
-      position: absolute;
-      top: 70px; /* Move the robot character down */
-      left: 10px; /* Adjust the left position to avoid covering the input field */
-      display: block; /* Show the bot character initially */
-    }
-    /* Style for the bot's typing animation (GIF) */
-    #typing-gif {
-      width: 200px; /* Adjust the size as needed */
-      position: absolute;
-      top: 70px; /* Move the typing GIF down to match the robot character */
-      left: 10px; /* Adjust the left position to match the bot character */
-      display: none; /* Hide the GIF initially */
-    }
-    /* Style for the video container */
-    #video-container {
-      position: relative;
-      text-align: center;
-    }
-    #video {
-      display: none;
-      width: 100%;
-      height: 500px; /* Adjust the height as needed to cover the chat and button */
-    }
-    #continue-button {
-      position: relative;
-      top: 10px;
-      right: 10px;
-      background-color: #6FB4FF;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      border-radius: 20px;
-      font-size: 18px;
-    }
-  </style>
-    <script src="scripts/script.js"></script>
-
-  <script>
-    const chatPrompts = {
-      jess: [
-        {
-          question: "Where does Jess live? Is it in a big city, a small town, or maybe in a magical forest?",
-          answer: "She lives in a new planet made of candy",
-        },
-        {
-          question: "What is the most amazing adventure or quest that Jess goes on in the candy planet? Is there a special mission or something magical that happens to her?",
-          answer: "There's a problem with cavities",
-        },
-        {
-          question: "Who are Jess's friends on this candy planet? Do they have any special abilities or qualities that could help them solve the problem of cavities?",
-          answer: "She has a gingerbread friend named Ginger",
-        },
-        {
-          question: "How does Ginger help Jess and their friends tackle the problem of cavities in the candy planet? Does Ginger have any special skills or ideas to share?",
-          answer: "He knows the way to a dentist",
-        },
-        {
-          question: "What challenges or obstacles do they face on their journey to find a dentist in the candy planet? Are there any fun or exciting moments along the way?",
-          answer: "They see different candy on different planets",
-        },
-      ],
-      nick: [
-        {
-          question: "Where does Nick live? Is it in a big city, a small town, or maybe in a magical forest?",
-          answer: "He lives in a treehouse in the enchanted forest",
-        },
-        {
-          question: "What is the most amazing adventure or quest that Nick goes on in the enchanted forest? Is there a special mission or something magical that happens to him?",
-          answer: "He discovers a hidden treasure guarded by talking animals",
-        },
-        {
-          question: "Who are Nick's friends in the enchanted forest? Do they have any special abilities or qualities that could help them find the hidden treasure?",
-          answer: "His friends are a wise owl, a mischievous squirrel, and a brave rabbit",
-        },
-        {
-          question: "How do Nick and his friends outsmart the talking animals and claim the hidden treasure as their own? Do they learn any valuable lessons along the way?",
-          answer: "They use teamwork and kindness to befriend the animals, and they learn that cooperation is the key to success",
-        },
-        {
-          question: "What happens to the hidden treasure once Nick and his friends have it? Does it bring good fortune or unexpected challenges?",
-          answer: "They use the treasure to improve the enchanted forest and share its benefits with all the magical creatures",
-        },
-      ],
-      winston: [
-        {
-          question: "Where does Winston live? Is it in a big city, a small town, or maybe in a magical forest?",
-          answer: "He lives in a bustling big city called Metroville",
-        },
-        {
-          question: "What is the most amazing adventure or quest that Winston goes on in Metroville? Is there a special mission or something extraordinary that happens to him?",
-          answer: "He becomes a superhero and joins forces with other heroes to save the city from a supervillain",
-        },
-        {
-          question: "Who are Winston's superhero friends in Metroville? Do they have unique superpowers or gadgets that help them in their mission?",
-          answer: "His friends are Captain Thunder, Laserbeam Girl, and Techno-Wizard, each with their own incredible abilities",
-        },
-        {
-          question: "How do Winston and his superhero friends defeat the supervillain and save Metroville from destruction? Do they face any unexpected challenges along the way?",
-          answer: "They combine their powers and use teamwork to outsmart the supervillain, but they face several close calls and must stay united",
-        },
-        {
-          question: "What does Winston do when there are no supervillains to defeat? Does he use his powers for good in other ways, or does he face new challenges in his everyday life?",
-          answer: "Winston continues to protect Metroville from threats, but he also uses his abilities to help the community and make the city a better place",
-        },
-      ],
-    };
-
-    const synth = window.speechSynthesis; // Initialize the speech synthesis
-
-    let currentPromptIndex = 0;
-    let isStoryDisplayed = false;
-    let isNameSet = false; // To track if the user's name has been set
-
-    // Function to display chat messages
-    function displayMessages() {
-      const chatContainer = document.getElementById('chat-container');
-
-      if (!isNameSet) {
-        // Display the initial bot message to ask for the user's name
-        const initialBotMessage = document.createElement('div');
-        initialBotMessage.classList.add('message', 'bot');
-        initialBotMessage.innerText = "Bot: Welcome! Let's create a story together. I'll ask you questions, and you can provide answers. First, please tell me your name (Jess, Nick, or Winston):";
-        chatContainer.appendChild(initialBotMessage);
-
-        // Read the initial message aloud
-        readAloud("Welcome! Let's create a story together. I'll ask you questions, and you can provide answers. First, please tell me your name (Jess, Nick, or Winston):");
-
-        // Set isNameSet to true to prevent asking for the name again
-        isNameSet = true;
+  <head>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      /* Add chat styles for children */
+      #chat-container {
+        border: 2px solid #6fb4ff;
+        padding: 10px;
+        width: 800px; /* Increase the width for more space */
+        height: 420px; /* Increase the height for more space */
+        background-color: #f8f8f8;
+        overflow-y: scroll;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        display: block; /* Show the chat container initially */
+      }
+      .message {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        position: relative;
+        font-size: 18px;
+      }
+      .user {
+        text-align: right;
+        background-color: #6fb4ff;
+        color: white;
+      }
+      .bot {
+        background-color: #ffa07a;
+        color: white;
+      }
+      /* Style for the user input field and submit button */
+      #user-input {
+        width: 650px; /* Match the width of the chat container */
+        padding: 15px;
+        font-size: 18px;
+        border: none;
+        border-radius: 20px;
+        outline: 2px solid #6fb4ff; /* Add an outline to the input field */
+        display: block; /* Show the input field initially */
       }
 
-      // Display the first bot question
-      const firstPrompt = chatPrompts.jess[currentPromptIndex];
-      const botMessageElement = document.createElement('div');
-      botMessageElement.classList.add('message', 'bot');
-      botMessageElement.innerText = firstPrompt.question;
-      chatContainer.appendChild(botMessageElement);
 
-      // Read the first question aloud
-      readAloud(firstPrompt.question);
-    }
-
-    // Function to read text aloud
-    function readAloud(text) {
-      const utterance = new SpeechSynthesisUtterance(text);
-      const typingGif = document.getElementById('typing-gif');
-
-      // Show the typing GIF while speaking
-      typingGif.style.display = 'inline';
-
-      synth.speak(utterance);
-
-      utterance.onend = function () {
-        // Hide the typing GIF when speech synthesis is done
-        typingGif.style.display = 'none';
-      };
-    }
-
-    // Function to handle user input
-    // Function to handle user input
-// Function to handle user input
-function handleUserInput() {
-  const userInput = document.getElementById('user-input').value;
-  const chatContainer = document.getElementById('chat-container');
-
-  if (isStoryDisplayed) {
-    // If the story is already displayed, tell the user to try again
-    const errorMessageElement = document.createElement('div');
-    errorMessageElement.classList.add('message', 'bot');
-    errorMessageElement.innerText = "Bot: Please try again or continue the story.";
-    chatContainer.appendChild(errorMessageElement);
-    readAloud("Please try again or continue the story.");
-
-    // Clear the input field
-    document.getElementById('user-input').value = '';
-    return;
-  }
-
-  if (userInput) {
-    // Display user message
-    const userMessageElement = document.createElement('div');
-    userMessageElement.classList.add('message', 'user');
-    userMessageElement.innerText = `You: ${userInput}`;
-    chatContainer.appendChild(userMessageElement);
-
-    if (!isNameSet) {
-      // Check if the user input is one of the accepted names
-      const name = userInput.toLowerCase();
-      if (name === 'jess' || name === 'nick' || name === 'winston') {
-        // Set the name and proceed to the next question set
-        isNameSet = true;
-        currentCharacter = name; // Set the current character
-        currentPromptIndex++; // Skip the name question
-      } else {
-        // Ask for the name again if it's not recognized
-        const errorMessageElement = document.createElement('div');
-        errorMessageElement.classList.add('message', 'bot');
-        errorMessageElement.innerText = "Bot: Please choose a valid name (Jess, Nick, or Winston).";
-        chatContainer.appendChild(errorMessageElement);
-        readAloud("Please choose a valid name (Jess, Nick, or Winston).");
+      /* Bot character */
+      #bot-character {
+        width: 220px; /* Adjust the size as needed */
+        border-radius: 10px;
+        display: block; /* Show the bot character initially */
       }
-    } else {
-      // Skip validation for all questions (2 to 8)
-      currentPromptIndex++;
-    }
+      /* Style for the bot's typing animation (GIF) */
+      #typing-gif {
+        width: 220px; /* Adjust the size as needed */
+        border-radius: 10px;
+        display: none !important; /* Hide the GIF initially */
+      }
+      /* Style for the video container */
+      #video-container {
+        position: relative;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+      #video {
+        display: none;
+        width: 100%;
+        height: 500px; /* Adjust the height as needed to cover the chat and button */
+      }
+      /* #continue-button {
+        background-color: #6fb4ff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 20px;
+        font-size: 18px;
+      } */
 
-    if (currentPromptIndex < chatPrompts.jess.length) {
-      // Display the next bot prompt based on the chosen name
-      const name = isNameSet ? currentCharacter.toLowerCase() : 'jess';
-      const nextPrompt = chatPrompts[name][currentPromptIndex];
-      const botMessageElement = document.createElement('div');
-      botMessageElement.classList.add('message', 'bot');
-      botMessageElement.innerText = nextPrompt.question;
-      chatContainer.appendChild(botMessageElement);
-      readAloud(nextPrompt.question);
-    } else {
-      // All prompts answered, display the story
-      isStoryDisplayed = true;
-      displayStory();
-    }
+      .blue-button {
+        background-color: #6fb4ff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 20px;
+        font-size: 18px;
+      }
 
-    // Clear the input field
-    document.getElementById('user-input').value = '';
+      #story-generation-container {
+        display: flex;
+        justify-content: center;
+        column-gap: 2rem;
+      }
+      .flex-row {
+        display: flex;
+        column-gap: 1rem;
+      }
 
-    // Smoothly scroll to the bottom of the chat container
-    chatContainer.scrollTop = chatContainer.scrollHeight;
-  }
-}
+      .input-bar {
+        display: flex;
+        align-items: center;
+      }
 
+      .flex-col {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+      }
 
+      .bot-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2px;
+        row-gap: 1rem;
+      }
 
-    // Function to display the story
-    f// Function to display the story
-function displayStory() {
-  const chatContainer = document.getElementById('chat-container');
-
-  // Your story content goes here
-  let storyContent = '';
-
-  switch (currentCharacter.toLowerCase()) {
-    case 'jess':
-      storyContent = `
-        Story 1: This is Jess's story.
-        // Insert Jess's story content here.
-      `;
-      break;
-
-    case 'nick':
-      storyContent = `
-        Story 2: This is Nick's story.
-        // Insert Nick's story content here.
-      `;
-      break;
-
-    case 'winston':
-      storyContent = `
-        Story 3: This is Winston's story.
-        // Insert Winston's story content here.
-      `;
-      break;
-
-    default:
-      // Handle the case where an unsupported character name is entered
-      storyContent = "Sorry, we couldn't find a story for that character.";
-      break;
-  }
-
-  // Display the story in the chat container
-  const storyMessageElement = document.createElement('div');
-  storyMessageElement.classList.add('message', 'bot');
-  storyMessageElement.innerHTML = `Bot: ${storyContent}`;
-  chatContainer.appendChild(storyMessageElement);
-
-  // Read the story aloud
-  readAloud(storyContent);
-
-  // Show the "Continue" button
-  const continueButton = document.getElementById('continue-button');
-  continueButton.style.display = 'inline';
-
-  // Smoothly scroll to the bottom of the chat container
-  chatContainer.scrollTop = chatContainer.scrollHeight;
-}
-
-
-// Function to continue the video
-function continueVideo() {
-  const video = document.getElementById('video');
-  const chatContainer = document.getElementById('chat-container');
-  const continueButton = document.getElementById('continue-button');
-  const botCharacter = document.getElementById('bot-character');
-  const userInput = document.getElementById('user-input');
-  const submitButton = document.getElementById('submit-button');
-  const typingGif = document.getElementById('typing-gif');
-
-  if (video.style.display === 'none') {
-    // Show the video and change button text to "Close"
-    video.style.display = 'block';
-    chatContainer.style.display = 'none';
-    botCharacter.style.display = 'none';
-    submitButton.style.display = 'none';
-    userInput.style.display = 'none';
-
-    video.play(); // Play the video
-    continueButton.innerText = 'Close'; // Change button text to "Close"
-  } else {
-    // Hide the video and show chat container and other elements
-    video.pause();
-    video.style.display = 'none';
-    chatContainer.style.display = 'block';
-    botCharacter.style.display = 'block';
-    submitButton.style.display = 'block';
-    userInput.style.display = 'block';
-
-    // Change button text to "See Video" and pause the video if needed
-    continueButton.innerText = 'See Video';
-  }
-}
-
-
-    // Call the function to display chat messages
-    // added code below for the stories container. 
-    displayMessages();
-  </script>
-</head>
-<body>
-  <!-- Home page -->
-  <div class="title">Welcome to ChatBot Adventures!</div>
-  <button onclick="window.location.href = 'story.html';">Start Drawing</button>
-  <button onclick="window.location.href = 'help.html';">Help</button>
-  
-  <div class="content-container">
-    <div id="stories-container"></div>
-  </div>
-  <!-- Video container -->
-  <div id="video-container">
-    <video id="video" controls>
-      <source src="intro-video.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <button id="continue-button" onclick="continueVideo()">Continue</button>
-  </div>
-
-  <!-- Chat container -->
-  <div id="chat-container">
-    <!-- Display the initial prompt -->
-    <div class="message bot" id="initial-prompt">
-      Please tell me your name (Jess, Nick, or Winston):
+      #submit-button {
+        width: 125px;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <!-- Home page -->
+    <div class="top-bar">
+      <div>Welcome to ChatBot Adventures!</div>
     </div>
-    <!-- Other chat messages will appear here -->
-  </div>
-  
-  <!-- User input field and submit button -->
-  <input type="text" id="user-input" placeholder="Your answer...">
-  <button id="submit-button" onclick="handleUserInput();">Submit</button>
+    <!-- <button onclick="window.location.href = 'story.html';">
+      Start Drawing
+    </button>
+    <button onclick="window.location.href = 'help.html';">Help</button> -->
 
-  <!-- Bot character image -->
-  <img src="bot-character.png" alt="ChatBot" id="bot-character">
-  <!-- Typing GIF -->
-  <img src="typing.gif" alt="Typing" id="typing-gif">
-</body>
+    <!-- Video container -->
+    <div id="video-container">
+      <video id="video" controls>
+        <source src="intro-video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="content-container">
+      <div id="story-generation-container">
+        <div class="bot-container">
+          <!-- Bot character image -->
+          <img src="bot-character.png" alt="ChatBot" id="bot-character" />
+          <!-- Typing GIF -->
+          <img src="typing.gif" alt="Typing" id="typing-gif" />
+          <div class="flex-row">
+            <button
+              id="continue-button"
+              class="blue-button"
+              onclick="continueVideo()"
+            >
+              Meet Robby
+            </button>
+            <button
+              onclick="window.location.href = 'help.html';"
+              class="blue-button"
+            >
+              Help
+            </button>
+          </div>
+        </div>
+        <!-- Chat container -->
+        <div class="flex-col">
+          <div id="chat-container"></div>
+
+          <!-- User input field and submit button -->
+          <div class="input-bar flex-row">
+            <input type="text" id="user-input" placeholder="Your answer..." />
+            <button
+              id="submit-button"
+              class="blue-button"
+              onclick="handleUserInput();"
+            >
+              Submit
+            </button>
+            <button id="voice-button" class="blue-button">Turn Off Voice</button>
+
+          </div>
+        </div>
+      </div>
+      <div class="collection-container">
+        <div class="collection-title">
+          <i class="fa fa-book" aria-hidden="true"></i> Stories
+        </div>
+        <div id="stories-container"></div>
+      </div>
+    </div>
+    <script src="scripts/script.js"></script>
+  </body>
 </html>

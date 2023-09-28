@@ -72,6 +72,29 @@
       height: 40px;
     }
 
+    #pen-size-container {
+      position: absolute;
+    top: 46.5%;
+    right: -240px;
+    transform: translate(0, -50%) rotateZ(-90deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #42ffe7;
+    padding: 0 0.5rem 0 0.5rem;
+    border-radius: 8px;
+    }
+
+    #pen-size-label {
+      margin-bottom: 20px;
+    }
+
+    #pen-size {
+      width: 400px; 
+      height: 40px; 
+    }
+
+    
   </style>
 </head>
 <body>
@@ -105,6 +128,11 @@
     </div>
     <div class="story-drawing-container">
       <div id="doodle-container">
+        <div id="pen-size-container">
+          <div id="pen-size-wrapper">
+              <input type="range" id="pen-size" min="1" max="100" value="50">
+          </div>
+        </div>
         <canvas id="doodle" width="656px" height="550px"></canvas>
         <div id="doodle-tools">
           <input type="color" id="color-chooser" value="#000000">
@@ -128,6 +156,5 @@
   <script src="scripts/story.js"></script>
   <!-- sets the canvas to page 1 image onload -->
   <script>updatePage();</script>
-
 </body>
 </html>
