@@ -334,7 +334,6 @@ function handleUserInput() {
         // Set the name and proceed to the next question set
         isNameSet = true;
         currentCharacter = name; // Set the current character
-        currentPromptIndex++; // Skip the name question
       } else {
         // Ask for the name again if it's not recognized
         const errorMessageElement = document.createElement("div");
@@ -344,9 +343,6 @@ function handleUserInput() {
         chatContainer.appendChild(errorMessageElement);
         readAloud("Please choose a valid name (Jess, Nick, or Winston).");
       }
-    } else {
-      // Skip validation for all questions (2 to 8)
-      currentPromptIndex++;
     }
     if (!isNameSet) {
       // Clear the input field
@@ -365,6 +361,7 @@ function handleUserInput() {
       botMessageElement.innerText = nextPrompt.question;
       chatContainer.appendChild(botMessageElement);
       readAloud(nextPrompt.question);
+      currentPromptIndex++;
     } else {
       // All prompts answered, display the story
       isStoryDisplayed = true;
