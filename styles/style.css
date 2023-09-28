@@ -1,16 +1,21 @@
 body {
   margin: 0;
   padding: 0;
-  width: 100vw;
-  height: 100vh;
+  height: 100%;
   background: linear-gradient(0deg, rgba(255,236,164,1) 0%, rgba(186,254,252,1) 100%);
 
   /* background: url("https://media.discordapp.net/attachments/1149760173079003140/1156284132490494064/image.png?ex=65146903&is=65131783&hm=39ce88312e7b4242c6ae01ca5707e20144178b26b300c5b100b8616e0c46fbd6&=&width=601&height=588"); */
 }
 
-.title {
+.top-bar {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 24px;
+  font-family: cursive;
+  margin: 1rem 0 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2rem;
 }
 
 .content-container {
@@ -22,17 +27,22 @@ body {
 }
 
 #stories-container {
-  margin-top: 2rem;
   height: 30rem;
-  /* background-color: white;
-  border-radius: 10px;
-  -webkit-box-shadow: -1px 5px 32px -3px rgba(0,0,0,0.75);
-  -moz-box-shadow: -1px 5px 32px -3px rgba(0,0,0,0.75);
-  box-shadow: -1px 5px 32px -3px rgba(0,0,0,0.75); */
   display: flex;
   column-gap: 1rem;
-  padding: 1rem;
 
+}
+
+.collection-container {
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.collection-title {
+  font-family: cursive;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
 }
 
 .book-title {
@@ -76,13 +86,4 @@ body {
   transform: rotateY(-15deg) scale(1.05);
 }
 
-/* Add this to your existing style.css or create a new CSS file */
-#chat-container {
-  border: 1px solid #ccc;
-  padding: 10px;
-  max-width: 4000px; /* Adjust the width as needed */
-  margin: 20px auto;
-  background-color: #f0f0f0;
-  overflow-y: scroll;
-  max-height: 1000px; /* Adjust the height as needed */
-}
+
