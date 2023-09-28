@@ -451,7 +451,7 @@ function continueVideo() {
     userInput.style.display = "block";
     typingGif.style.display = "block";
     // Change button text to "See Video" and pause the video if needed
-    continueButton.innerText = "See Video";
+    continueButton.innerText = "Meet Robby";
     storyGenerationContainer.style.columnGap = "2rem";
   } else {
     // Show the video and change button text to "Close"
