@@ -48,7 +48,7 @@
 
       /* Bot character */
       #bot-character {
-        width: 220px; /* Adjust the size as needed */
+        width: 250px; /* Adjust the size as needed */
         border-radius: 10px;
         display: block; /* Show the bot character initially */
       }
@@ -103,6 +103,13 @@
         column-gap: 1rem;
       }
 
+      .action-btns {
+        display: flex;
+        column-gap: 1rem;
+        margin-top: 22px;
+        justify-content: center;
+      }
+
       .input-bar {
         display: flex;
         align-items: center;
@@ -117,8 +124,6 @@
       .bot-container {
         display: flex;
         flex-direction: column;
-        margin-top: 2px;
-        row-gap: 1rem;
       }
 
       #submit-button {
@@ -151,7 +156,7 @@
           <img src="bot-character.png" alt="ChatBot" id="bot-character" />
           <!-- Typing GIF -->
           <img src="typing.gif" alt="Typing" id="typing-gif" />
-          <div class="flex-row">
+          <div class="action-btns">
             <button
               id="continue-button"
               class="blue-button"
