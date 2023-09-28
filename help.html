@@ -1,8 +1,170 @@
 <!DOCTYPE html>
-<head>
-  <link rel="stylesheet" href="styles/style.css" />
-</head>
-<body>
-  <div class="title">HELP</div>
-  <button onclick="window.location.href = 'index.html';">Back</button>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="styles/nav.css" />
+    <title>HELP page - ChatGPT-kids</title>
+    <style>
+      h1 {
+        color: #189387;
+      }
+
+      h2 {
+        color: #911589;
+      }
+
+      h3 {
+        color: #934718;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: linear-gradient(
+          0deg,
+          rgba(255, 236, 164, 1) 0%,
+          rgba(186, 254, 252, 1) 100%
+        );
+      }
+
+      /*  CSS Flexbox */
+      .container {
+        display: flex;
+        justify-content: center;
+      }
+
+      .content {
+        flex: 1;
+        text-align: left;
+      }
+
+      .image {
+        flex: 1;
+        text-align: center;
+      }
+
+      .image img {
+        max-width: 100%;
+        height: auto;
+        margin: 20px;
+      }
+
+      footer {
+        background-color: #ffd700;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .help-container {
+        width: 80%;
+        margin: auto;
+      }
+
+      .blue-button {
+        background-color: #6fb4ff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 20px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav-bar">
+      <div class="left-nav">
+        <button class="home-btn" onclick="window.location.href='index.html';">
+          <i class="fa fa-home" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="middle-nav">
+        <div class="title">ChatBot Adventures</div>
+      </div>
+      <div class="right-nav"></div>
+    </div>
+
+    <div class="help-container">
+      <header>
+        <h1>Help Interface</h1>
+      </header>
+      <div class="container">
+        <div class="content">
+          <h2>
+            Welcome to the help page of children's story generation
+            software(ChatGPT-kids)
+          </h2>
+          <p>
+            This software is designed for kids and adults to help them create
+            fun stories and interactive experiences. Here is some helpful
+            information and tips:
+          </p>
+          <h3>1. Start using the application</h3>
+          <p>
+            First, make sure you have installed and started the children's story
+            generation software. If you need help installing or starting, please
+            refer to the software's official documentation.
+          </p>
+
+          <h3>2. Create a new story</h3>
+          <p>
+            To start creating a new story, find the "Create New Story" option on
+            the software interface and follow the prompts. You choose the theme,
+            characters, and set the plot.
+          </p>
+
+          <h3>3. Interact with artificial intelligence(ChatGPT-kids)</h3>
+          <p>
+            As you create your story, you'll interact with artificial
+            intelligence. You can ask questions, provide plot clues, or let the
+            AI continue the storyline for you.
+          </p>
+
+          <h3>4. Save and share the story you created</h3>
+          <p>
+            Once you complete the story, don't forget to save it. You can save
+            stories to your account or device and share them with friends and
+            family anytime.
+          </p>
+
+          <h3>5. Get more Help</h3>
+          <p>
+            If you encounter any problems or need further assistance, please
+            visit our support page or contact our customer service team.
+          </p>
+        </div>
+
+        <div class="image">
+          <!-- Put image here -->
+
+          <img src="help.gif" width="300" alt="" />
+        </div>
+      </div>
+      <footer>
+        <p>
+          Thank you for using Children's Story Generator, we hope you and your
+          children enjoy creating and reading fun stories!
+        </p>
+        <button
+          class="blue-button"
+          onclick="window.location.href = 'acknowledgments.html';"
+        >
+          <!-- <img src="button_Back.png" alt=> -->
+          Acknowledgments
+        </button>
+      </footer>
+
+      <!-- <hr />
+      <a class="button" href="acknowledgments.html"
+        ><img src="button_Acknowledgment.png" alt=></a
+      > -->
+    </div>
+  </body>
+</html>
