@@ -2,20 +2,21 @@
 <html>
   <head>
     <link rel="stylesheet" href="styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <style>
       /* Add chat styles for children */
       #chat-container {
         border: 2px solid #6fb4ff;
         padding: 10px;
         width: 800px; /* Increase the width for more space */
-        height: 500px; /* Increase the height for more space */
-        margin: 20px auto;
+        height: 420px; /* Increase the height for more space */
         background-color: #f8f8f8;
         overflow-y: scroll;
         border-radius: 20px;
-        left: 60px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        position: relative; /* For positioning the bot character */
         display: block; /* Show the chat container initially */
       }
       .message {
@@ -23,7 +24,6 @@
         padding: 10px;
         border-radius: 10px;
         position: relative;
-        left: auto;
         font-size: 18px;
       }
       .user {
@@ -32,7 +32,6 @@
         color: white;
       }
       .bot {
-        text-align: left;
         background-color: #ffa07a;
         color: white;
       }
@@ -40,53 +39,47 @@
       #user-input {
         width: 650px; /* Match the width of the chat container */
         padding: 15px;
-        position: relative;
-        left: 220px;
         font-size: 18px;
         border: none;
-        margin: 20px;
         border-radius: 20px;
         outline: 2px solid #6fb4ff; /* Add an outline to the input field */
         display: block; /* Show the input field initially */
       }
-      #submit-button {
-        display: block; /* Show the submit button initially */
-        position: relative;
-        top: -70px;
-        left: 950px;
-        width: 100px;
-        height: 50px;
-      }
+
       /* Bot character */
       #bot-character {
-        width: 200px; /* Adjust the size as needed */
-        position: absolute;
-        top: 70px; /* Move the robot character down */
-        left: 10px; /* Adjust the left position to avoid covering the input field */
+        width: 220px; /* Adjust the size as needed */
+        border-radius: 10px;
         display: block; /* Show the bot character initially */
       }
       /* Style for the bot's typing animation (GIF) */
       #typing-gif {
-        width: 200px; /* Adjust the size as needed */
-        position: absolute;
-        top: 70px; /* Move the typing GIF down to match the robot character */
-        left: 10px; /* Adjust the left position to match the bot character */
-        display: none; /* Hide the GIF initially */
+        width: 220px; /* Adjust the size as needed */
+        border-radius: 10px;
+        display: none !important; /* Hide the GIF initially */
       }
       /* Style for the video container */
       #video-container {
         position: relative;
         text-align: center;
+        margin-bottom: 1rem;
       }
       #video {
         display: none;
         width: 100%;
         height: 500px; /* Adjust the height as needed to cover the chat and button */
       }
-      #continue-button {
-        position: relative;
-        top: 10px;
-        right: 10px;
+      /* #continue-button {
+        background-color: #6fb4ff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 20px;
+        font-size: 18px;
+      } */
+
+      .blue-button {
         background-color: #6fb4ff;
         color: white;
         border: none;
@@ -95,15 +88,49 @@
         border-radius: 20px;
         font-size: 18px;
       }
+
+      #story-generation-container {
+        display: flex;
+        justify-content: center;
+        column-gap: 2rem;
+      }
+      .flex-row {
+        display: flex;
+        column-gap: 1rem;
+      }
+
+      .input-bar {
+        display: flex;
+        align-items: center;
+      }
+
+      .flex-col {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+      }
+
+      .bot-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2px;
+        row-gap: 1rem;
+      }
+
+      #submit-button {
+        width: 125px;
+      }
     </style>
   </head>
   <body>
     <!-- Home page -->
-    <div class="title">Welcome to ChatBot Adventures!</div>
-    <button onclick="window.location.href = 'story.html';">
+    <div class="top-bar">
+      <div>Welcome to ChatBot Adventures!</div>
+    </div>
+    <!-- <button onclick="window.location.href = 'story.html';">
       Start Drawing
     </button>
-    <button onclick="window.location.href = 'help.html';">Help</button>
+    <button onclick="window.location.href = 'help.html';">Help</button> -->
 
     <!-- Video container -->
     <div id="video-container">
@@ -111,28 +138,60 @@
         <source src="intro-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <button id="continue-button" onclick="continueVideo()">See Video</button>
     </div>
 
-    <!-- Chat container -->
-    <div id="chat-container">
-      <!-- Display the initial prompt -->
-      <div class="message bot" id="initial-prompt">
-        Please tell me your name (Jess, Nick, or Winston):
-      </div>
-      <!-- Other chat messages will appear here -->
-    </div>
-
-    <!-- User input field and submit button -->
-    <input type="text" id="user-input" placeholder="Your answer..." />
-    <button id="submit-button" onclick="handleUserInput();">Submit</button>
-
-    <!-- Bot character image -->
-    <img src="bot-character.png" alt="ChatBot" id="bot-character" />
-    <!-- Typing GIF -->
-    <img src="typing.gif" alt="Typing" id="typing-gif" />
     <div class="content-container">
-      <div id="stories-container"></div>
+      <div id="story-generation-container">
+        <div class="bot-container">
+          <!-- Bot character image -->
+          <img src="bot-character.png" alt="ChatBot" id="bot-character" />
+          <!-- Typing GIF -->
+          <img src="typing.gif" alt="Typing" id="typing-gif" />
+          <div class="flex-row">
+            <button
+              id="continue-button"
+              class="blue-button"
+              onclick="continueVideo()"
+            >
+              Meet Robby
+            </button>
+            <button
+              onclick="window.location.href = 'help.html';"
+              class="blue-button"
+            >
+              Help
+            </button>
+          </div>
+        </div>
+        <!-- Chat container -->
+        <div class="flex-col">
+          <div id="chat-container">
+            <!-- Display the initial prompt -->
+            <div class="message bot" id="initial-prompt">
+              Please tell me your name (Jess, Nick, or Winston):
+            </div>
+            <!-- Other chat messages will appear here -->
+          </div>
+
+          <!-- User input field and submit button -->
+          <div class="input-bar flex-row">
+            <input type="text" id="user-input" placeholder="Your answer..." />
+            <button
+              id="submit-button"
+              class="blue-button"
+              onclick="handleUserInput();"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="collection-container">
+        <div class="collection-title">
+          <i class="fa fa-book" aria-hidden="true"></i> Stories
+        </div>
+        <div id="stories-container"></div>
+      </div>
     </div>
     <script src="scripts/script.js"></script>
   </body>

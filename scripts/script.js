@@ -437,6 +437,10 @@ function continueVideo() {
   const userInput = document.getElementById("user-input");
   const submitButton = document.getElementById("submit-button");
   const typingGif = document.getElementById("typing-gif");
+  const storyGenerationContainer = document.getElementById(
+    "story-generation-container"
+  );
+
   if (video.style.display === "block") {
     video.pause();
     video.style.display = "none";
@@ -447,6 +451,7 @@ function continueVideo() {
     typingGif.style.display = "block";
     // Change button text to "See Video" and pause the video if needed
     continueButton.innerText = "See Video";
+    storyGenerationContainer.style.columnGap = "2rem";
   } else {
     // Show the video and change button text to "Close"
     video.style.display = "block";
@@ -457,6 +462,7 @@ function continueVideo() {
     typingGif.style.display = "none";
     video.play(); // Play the video
     continueButton.innerText = "Close"; // Change button text to "Close"
+    storyGenerationContainer.style.columnGap = "0rem";
   }
 }
 
