@@ -1,0 +1,51 @@
+.nav-bar {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  background: linear-gradient(
+    0deg,
+    rgba(43, 122, 248, 1) 0%,
+    rgba(11, 228, 215, 1) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(43, 248, 212, 1) 0%,
+    rgba(255, 177, 108, 1) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(177, 255, 241, 1) 0%,
+    rgba(255, 202, 154, 1) 100%
+  );
+}
+
+.left-nav {
+  min-width: 5rem;
+  width: 100%;
+}
+
+.middle-nav {
+  min-width: 5rem;
+  width: 100%;
+  text-align: center;
+}
+
+.right-nav {
+  min-width: 5rem;
+  width: 100%;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+.home-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.home-btn i {
+  font-size: 42px;
+}
