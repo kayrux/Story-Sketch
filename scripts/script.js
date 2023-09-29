@@ -86,6 +86,7 @@ let stories = [
 ];
 
 const storedStoriesJSON = localStorage.getItem("stories");
+let isVoiceMuted = false;
 
 // If stories exists in local storage, retrieve the data use it.
 // Otherwise use the hardcoded stories and save it to local storage
@@ -287,18 +288,20 @@ function displayMessages() {
 
 // Function to read text aloud
 function readAloud(text) {
-  const utterance = new SpeechSynthesisUtterance(text);
-  const typingGif = document.getElementById("typing-gif");
+  if (!isMuted) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    const typingGif = document.getElementById("typing-gif");
 
-  // Show the typing GIF while speaking
-  typingGif.style.display = "inline";
+    // Show the typing GIF while speaking
+    typingGif.style.display = "inline";
 
-  synth.speak(utterance);
+    synth.speak(utterance);
 
-  utterance.onend = function () {
-    // Hide the typing GIF when speech synthesis is done
-    typingGif.style.display = "none";
-  };
+    utterance.onend = function () {
+      // Hide the typing GIF when speech synthesis is done
+      typingGif.style.display = "none";
+    };
+  }
 }
 
 // Function to handle user input
@@ -317,6 +320,8 @@ function handleUserInput() {
 
     // Clear the input field
     document.getElementById("user-input").value = "";
+
+    toggleVoice();
     return;
   }
 
@@ -428,6 +433,54 @@ function displayStory() {
   // Smoothly scroll to the bottom of the chat container
   chatContainer.scrollTop = chatContainer.scrollHeight;
 }
+//
+
+// Initialize a variable to track the voice state
+//let isVoiceMuted = false;
+let isMuted = false; // Track whether speech synthesis is muted
+
+// Function to toggle voice mute/unmute
+function toggleVoice() {
+  const voiceButton = document.getElementById("voice-button");
+  if (isVoiceMuted) {
+    // Unmute the voice
+    // synth.resume();
+    isMuted = false;
+    voiceButton.textContent = "Turn Off Voice";
+  } else {
+    // Mute the voice
+    isMuted = true;
+    // synth.pause();
+    // synth.cancel();
+    voiceButton.textContent = "Turn On Voice";
+  }
+
+  // Toggle the voice state
+  isVoiceMuted = !isVoiceMuted;
+}
+
+//
+//const synth = window.speechSynthesis; // Initialize the speech synthesis
+
+// Function to toggle mute/unmute
+function toggleMute() {
+  if (isMuted) {
+    // Unmute speech synthesis
+    synth.resume();
+    isMuted = false;
+    document.getElementById("voice-button").textContent = "Turn Off Voice";
+  } else {
+    // Mute speech synthesis
+    synth.cancel(); // Stop any ongoing speech
+    isMuted = true;
+    document.getElementById("voice-button").textContent = "Turn On Voice";
+  }
+}
+
+// Add a click event listener to the "Turn Off Voice" button
+document.getElementById("voice-button").addEventListener("click", toggleMute);
+
+//
 
 // Function to continue the video
 function continueVideo() {
