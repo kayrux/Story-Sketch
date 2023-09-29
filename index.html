@@ -129,6 +129,13 @@
       #submit-button {
         width: 125px;
       }
+
+      #top-action-bar {
+        width: 100%;
+        display: flex;
+        justify-content: right;
+        margin-bottom: 0.5rem;
+      }
     </style>
   </head>
   <body>
@@ -150,6 +157,13 @@
     </div>
 
     <div class="content-container">
+      <div id="top-action-bar">
+        <button id="voice-button" class="blue-button">
+          <i id="sound-icon" class="fa fa-volume-off" aria-hidden="true"></i>
+          Mute
+        </button>
+      </div>
+
       <div id="story-generation-container">
         <div class="bot-container">
           <!-- Bot character image -->
@@ -185,9 +199,6 @@
               onclick="handleUserInput();"
             >
               Submit
-            </button>
-            <button id="voice-button" class="blue-button">
-              Turn Off Voice
             </button>
           </div>
         </div>
