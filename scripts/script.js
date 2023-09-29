@@ -86,6 +86,7 @@ let stories = [
 ];
 
 const storedStoriesJSON = localStorage.getItem("stories");
+let isVoiceMuted = true;
 
 // If stories exists in local storage, retrieve the data use it.
 // Otherwise use the hardcoded stories and save it to local storage
@@ -254,6 +255,8 @@ let currentPromptIndex = 0;
 let isStoryDisplayed = false;
 let isNameSet = false; // To track if the user's name has been set
 
+let topActionBarElement = document.getElementById("top-action-bar");
+
 // Function to display chat messages
 function displayMessages() {
   const chatContainer = document.getElementById("chat-container");
@@ -287,18 +290,20 @@ function displayMessages() {
 
 // Function to read text aloud
 function readAloud(text) {
-  const utterance = new SpeechSynthesisUtterance(text);
-  const typingGif = document.getElementById("typing-gif");
+  if (!isMuted) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    const typingGif = document.getElementById("typing-gif");
 
-  // Show the typing GIF while speaking
-  typingGif.style.display = "inline";
+    // Show the typing GIF while speaking
+    typingGif.style.display = "inline";
 
-  synth.speak(utterance);
+    synth.speak(utterance);
 
-  utterance.onend = function () {
-    // Hide the typing GIF when speech synthesis is done
-    typingGif.style.display = "none";
-  };
+    utterance.onend = function () {
+      // Hide the typing GIF when speech synthesis is done
+      typingGif.style.display = "none";
+    };
+  }
 }
 
 // Function to handle user input
@@ -317,6 +322,8 @@ function handleUserInput() {
 
     // Clear the input field
     document.getElementById("user-input").value = "";
+
+    toggleVoice();
     return;
   }
 
@@ -428,6 +435,69 @@ function displayStory() {
   // Smoothly scroll to the bottom of the chat container
   chatContainer.scrollTop = chatContainer.scrollHeight;
 }
+//
+
+// Initialize a variable to track the voice state
+//let isVoiceMuted = false;
+let isMuted = JSON.parse(localStorage.getItem("muted")) || false;
+// Track whether speech synthesis is muted
+initializeMuteBtnInnerHTML();
+
+// Function to toggle voice mute/unmute
+function toggleVoice() {
+  const voiceButton = document.getElementById("voice-button");
+  if (isVoiceMuted) {
+    // Unmute the voice
+    // synth.resume();
+    isMuted = false;
+    voiceButton.textContent = "Turn Off Voice";
+  } else {
+    // Mute the voice
+    isMuted = true;
+    // synth.pause();
+    // synth.cancel();
+    voiceButton.textContent = "Turn On Voice";
+  }
+
+  // Toggle the voice state
+  isVoiceMuted = !isVoiceMuted;
+}
+
+//
+//const synth = window.speechSynthesis; // Initialize the speech synthesis
+
+function initializeMuteBtnInnerHTML() {
+  if (!isMuted) {
+    document.getElementById("voice-button").innerHTML =
+      '<i id="sound-icon" class="fa fa-volume-off" aria-hidden="true"></i> Mute';
+  } else {
+    document.getElementById("voice-button").innerHTML =
+      '<i id="sound-icon" class="fa fa-volume-up" aria-hidden="true"></i> Unmute';
+  }
+}
+// Function to toggle mute/unmute
+function toggleMute() {
+  if (isMuted) {
+    // Unmute speech synthesis
+    synth.resume();
+    isMuted = false;
+    document.getElementById("voice-button").innerHTML =
+      '<i id="sound-icon" class="fa fa-volume-off" aria-hidden="true"></i> Mute';
+    localStorage.setItem("muted", JSON.stringify(isMuted));
+  } else {
+    // Mute speech synthesis
+    synth.cancel(); // Stop any ongoing speech
+    isMuted = true;
+    document.getElementById("voice-button").innerHTML =
+      '<i id="sound-icon" class="fa fa-volume-up" aria-hidden="true"></i> Unmute';
+    localStorage.setItem("muted", JSON.stringify(isMuted));
+  }
+}
+
+// Add a click event listener to the "Turn Off Voice" button
+document.getElementById("voice-button").addEventListener("click", toggleMute);
+
+//
 
 // Function to continue the video
 function continueVideo() {
@@ -450,6 +520,7 @@ function continueVideo() {
     submitButton.style.display = "block";
     userInput.style.display = "block";
     typingGif.style.display = "block";
+    topActionBarElement.style.display = "flex";
     // Change button text to "See Video" and pause the video if needed
     continueButton.innerText = "Meet Robby";
     storyGenerationContainer.style.columnGap = "2rem";
@@ -461,6 +532,7 @@ function continueVideo() {
     submitButton.style.display = "none";
     userInput.style.display = "none";
     typingGif.style.display = "none";
+    topActionBarElement.style.display = "none";
     video.play(); // Play the video
     continueButton.innerText = "Close"; // Change button text to "Close"
     storyGenerationContainer.style.columnGap = "0rem";

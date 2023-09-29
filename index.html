@@ -70,14 +70,14 @@
         height: 500px; /* Adjust the height as needed to cover the chat and button */
       }
       /* #continue-button {
-        background-color: #6fb4ff;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        border-radius: 20px;
-        font-size: 18px;
-      } */
+              background-color: #6fb4ff;
+              color: white;
+              border: none;
+              padding: 10px 20px;
+              cursor: pointer;
+              border-radius: 20px;
+              font-size: 18px;
+            } */
 
       .blue-button {
         background-color: #6fb4ff;
@@ -129,6 +129,13 @@
       #submit-button {
         width: 125px;
       }
+
+      #top-action-bar {
+        width: 100%;
+        display: flex;
+        justify-content: right;
+        margin-bottom: 0.5rem;
+      }
     </style>
   </head>
   <body>
@@ -150,6 +157,13 @@
     </div>
 
     <div class="content-container">
+      <div id="top-action-bar">
+        <button id="voice-button" class="blue-button">
+          <i id="sound-icon" class="fa fa-volume-off" aria-hidden="true"></i>
+          Mute
+        </button>
+      </div>
+
       <div id="story-generation-container">
         <div class="bot-container">
           <!-- Bot character image -->
