@@ -2,21 +2,7 @@
   display: flex;
   align-items: center;
   padding: 0.5rem;
-  background: linear-gradient(
-    0deg,
-    rgba(43, 122, 248, 1) 0%,
-    rgba(11, 228, 215, 1) 100%
-  );
-  background: linear-gradient(
-    0deg,
-    rgba(43, 248, 212, 1) 0%,
-    rgba(255, 177, 108, 1) 100%
-  );
-  background: linear-gradient(
-    0deg,
-    rgba(177, 255, 241, 1) 0%,
-    rgba(255, 202, 154, 1) 100%
-  );
+  border-bottom: 2px solid #3fbeae;
 }
 
 .left-nav {
@@ -45,6 +31,10 @@
   border: none;
   background: none;
   cursor: pointer;
+}
+
+.home-btn:hover {
+  transform: scale(1.05);
 }
 .home-btn i {
   font-size: 42px;
