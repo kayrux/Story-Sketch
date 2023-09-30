@@ -175,7 +175,6 @@ clearButton.addEventListener("click", clearDoodle);
 function updatePenSize() {
   const penSizeValue = parseInt(document.getElementById("pen-size").value, 10);
   doodleContext.lineWidth = penSizeValue;
-  console.log("Pen Size:", penSizeValue);
 }
 
 updatePenSize(); // Initialize the pen size on page load
