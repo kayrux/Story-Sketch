@@ -103,3 +103,29 @@ body {
   font-weight: bold;
   display: none;
 }
+
+/* Tooltip from https://www.w3schools.com/css/tryit.asp?filename=trycss_tooltip */
+.tooltip {
+  /* position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; */
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  transform: rotateZ(90deg);
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
