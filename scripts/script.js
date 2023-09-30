@@ -1,4 +1,4 @@
-let stories = [
+let storiesGenerated = [
   {
     name: "jess",
     title: "Jess's Adventure in the Enchanted Forest",
@@ -111,101 +111,109 @@ let stories = [
   },
 ];
 
-// let stories = [
-//   {
-//     title: "Dino's Adventure: The Magical Tree of Leaves",
-//     tags: ["trees", "dinosaurs", "leaves"],
-//     frontPage: "",
-//     pages: [
-//       {
-//         text: "Once upon a time, in a magical land filled with colorful dinosaurs and towering trees, there lived a young and curious dinosaur named Dino...",
-//         img: "",
-//       },
-//       {
-//         text: "One sunny morning, Dino decided to embark on an exciting adventure to find the legendary 'Magical Tree of Leaves.' According to the ancient tales, this tree had the most beautiful and colorful leaves that held incredible powers...",
-//         img: "",
-//       },
-//       {
-//         text: "As Dino journeyed through the forest, he met his friends along the way—a wise Triceratops named Tria and a playful Pterodactyl named Pete...",
-//         img: "",
-//       },
-//       {
-//         text: "Through the dense forest and across bubbling streams, they searched for clues that would lead them to the magical tree. Suddenly, they stumbled upon a hidden path filled with colorful flowers and sparkling rocks...",
-//         img: "",
-//       },
-//       {
-//         text: "Following the path, they reached a clearing where an enormous tree stood, covered in leaves of every hue imaginable...",
-//         img: "",
-//       },
-//       {
-//         text: "Excited and in awe, they approached the tree, and as they touched the leaves, something extraordinary happened. The leaves whispered ancient tales and secrets, filling their hearts with wonder and joy...",
-//         img: "",
-//       },
-//       {
-//         text: "Dino, Tria, and Pete learned that the magical leaves could grant a wish to anyone with a kind and pure heart. Overwhelmed with joy, they each made a wish—to spread love, kindness, and happiness throughout their forest and beyond...",
-//         img: "",
-//       },
-//       {
-//         text: "As they made their wishes, the tree sprinkled a dust of magic over them, sealing their promises to the forest and its creatures...",
-//         img: "",
-//       },
-//       {
-//         text: "Their journey back was filled with laughter and excitement as they shared their newfound knowledge with fellow dinosaurs...",
-//         img: "",
-//       },
-//       {
-//         text: "And so, in the heart of the enchanting forest, Dino and his friends continued to spread love and kindness, making their world a better place for all dinosaurs, trees, and leaves, leaving a lasting legacy for generations to come.",
-//         img: "",
-//       },
-//     ],
-//   },
-//   {
-//     title: "The Adventure of Sammy the Snail",
-//     pages: [
-//       {
-//         text: "Once upon a time, in a magical garden, lived a curious snail named Sammy. Sammy was unlike any other snail in the garden. Sammy had a dream - a dream to see the world beyond the garden.",
-//         img: "",
-//       },
-//       {
-//         text: "Sammy spent his days exploring the garden, talking to the wise old trees and friendly ladybugs. One day, while chatting with a butterfly named Bella, Sammy shared his dream of adventure.",
-//         img: "",
-//       },
-//       {
-//         text: "Bella said, 'Why don't you go on an adventure right here in the garden? There's so much to discover and learn!' Sammy thought this was a splendid idea and set off on his very first adventure.",
-//         img: "",
-//       },
-//       {
-//         text: "Sammy discovered a hidden trail behind the flower bushes. He followed it and found a secret garden with magical glowing flowers. 'Wow!' Sammy exclaimed, mesmerized by the beauty.",
-//         img: "",
-//       },
-//       {
-//         text: "In this magical garden, Sammy met a wise old snail named Grandpa Sheldon. Grandpa Sheldon shared stories of his own adventures and gave Sammy a special amulet that would guide him on his journey.",
-//         img: "",
-//       },
-//       {
-//         text: "With the amulet around his neck, Sammy felt a burst of courage. He embarked on a grand adventure, meeting friendly creatures and overcoming challenges. He realized that even small creatures like him could have big adventures.",
-//         img: "",
-//       },
-//       {
-//         text: "Sammy returned to his garden, filled with excitement and new stories to tell. He knew that his dream of adventure had come true, right in his own backyard.",
-//         img: "",
-//       },
-//       {
-//         text: "And so, Sammy the Snail continued to have many more exciting adventures in the garden, sharing his tales with all his friends, and inspiring them to dream big too.",
-//         img: "",
-//       },
-//     ],
-//   },
-// ];
+let stories = [
+  {
+    title: "Dino's Adventure: The Magical Tree of Leaves",
+    tags: ["trees", "dinosaurs", "leaves"],
+    frontPage: "",
+    pages: [
+      {
+        text: "Once upon a time, in a magical land filled with colorful dinosaurs and towering trees, there lived a young and curious dinosaur named Dino...",
+        img: "",
+      },
+      {
+        text: "One sunny morning, Dino decided to embark on an exciting adventure to find the legendary 'Magical Tree of Leaves.' According to the ancient tales, this tree had the most beautiful and colorful leaves that held incredible powers...",
+        img: "",
+      },
+      {
+        text: "As Dino journeyed through the forest, he met his friends along the way—a wise Triceratops named Tria and a playful Pterodactyl named Pete...",
+        img: "",
+      },
+      {
+        text: "Through the dense forest and across bubbling streams, they searched for clues that would lead them to the magical tree. Suddenly, they stumbled upon a hidden path filled with colorful flowers and sparkling rocks...",
+        img: "",
+      },
+      {
+        text: "Following the path, they reached a clearing where an enormous tree stood, covered in leaves of every hue imaginable...",
+        img: "",
+      },
+      {
+        text: "Excited and in awe, they approached the tree, and as they touched the leaves, something extraordinary happened. The leaves whispered ancient tales and secrets, filling their hearts with wonder and joy...",
+        img: "",
+      },
+      {
+        text: "Dino, Tria, and Pete learned that the magical leaves could grant a wish to anyone with a kind and pure heart. Overwhelmed with joy, they each made a wish—to spread love, kindness, and happiness throughout their forest and beyond...",
+        img: "",
+      },
+      {
+        text: "As they made their wishes, the tree sprinkled a dust of magic over them, sealing their promises to the forest and its creatures...",
+        img: "",
+      },
+      {
+        text: "Their journey back was filled with laughter and excitement as they shared their newfound knowledge with fellow dinosaurs...",
+        img: "",
+      },
+      {
+        text: "And so, in the heart of the enchanting forest, Dino and his friends continued to spread love and kindness, making their world a better place for all dinosaurs, trees, and leaves, leaving a lasting legacy for generations to come.",
+        img: "",
+      },
+    ],
+  },
+  {
+    title: "The Adventure of Sammy the Snail",
+    pages: [
+      {
+        text: "Once upon a time, in a magical garden, lived a curious snail named Sammy. Sammy was unlike any other snail in the garden. Sammy had a dream - a dream to see the world beyond the garden.",
+        img: "",
+      },
+      {
+        text: "Sammy spent his days exploring the garden, talking to the wise old trees and friendly ladybugs. One day, while chatting with a butterfly named Bella, Sammy shared his dream of adventure.",
+        img: "",
+      },
+      {
+        text: "Bella said, 'Why don't you go on an adventure right here in the garden? There's so much to discover and learn!' Sammy thought this was a splendid idea and set off on his very first adventure.",
+        img: "",
+      },
+      {
+        text: "Sammy discovered a hidden trail behind the flower bushes. He followed it and found a secret garden with magical glowing flowers. 'Wow!' Sammy exclaimed, mesmerized by the beauty.",
+        img: "",
+      },
+      {
+        text: "In this magical garden, Sammy met a wise old snail named Grandpa Sheldon. Grandpa Sheldon shared stories of his own adventures and gave Sammy a special amulet that would guide him on his journey.",
+        img: "",
+      },
+      {
+        text: "With the amulet around his neck, Sammy felt a burst of courage. He embarked on a grand adventure, meeting friendly creatures and overcoming challenges. He realized that even small creatures like him could have big adventures.",
+        img: "",
+      },
+      {
+        text: "Sammy returned to his garden, filled with excitement and new stories to tell. He knew that his dream of adventure had come true, right in his own backyard.",
+        img: "",
+      },
+      {
+        text: "And so, Sammy the Snail continued to have many more exciting adventures in the garden, sharing his tales with all his friends, and inspiring them to dream big too.",
+        img: "",
+      },
+    ],
+  },
+];
 
+// Uncomment below to reset local storage stories
+// localStorage.setItem("stories", "");
 const storedStoriesJSON = localStorage.getItem("stories");
+let storedStories = false;
+try {
+  storedStories = JSON.parse(storedStoriesJSON);
+} catch {
+  console.log("Error parsing! Resetting stories");
+}
 let isVoiceMuted = true;
 
 // If stories exists in local storage, retrieve the data use it.
 // Otherwise use the hardcoded stories and save it to local storage
-if (storedStoriesJSON) {
+if (storedStories) {
   // Parse the JSON string back into a JavaScript object
-  retrievedStories = JSON.parse(storedStoriesJSON);
+  retrievedStories = storedStories;
   if (stories.length <= retrievedStories.length) {
     console.log("Setting to retrieved stories");
     stories = retrievedStories;
@@ -391,12 +399,12 @@ function displayMessages() {
     const initialBotMessage = document.createElement("div");
     initialBotMessage.classList.add("message", "bot");
     initialBotMessage.innerText =
-      "Bot: Welcome! Let's create a story together. I'll ask you questions, and you can provide answers. First, please tell me your name (Jess, Nick, or Winston):";
+      "Robby: Welcome! Let's create a story together. I'll ask you questions, and you can provide answers. First, please tell me the name of your main character:";
     chatContainer.appendChild(initialBotMessage);
 
     // Read the initial message aloud
     readAloud(
-      "Welcome! Let's create a story together. I'll ask you questions, and you can provide answers. First, please tell me your name (Jess, Nick, or Winston):"
+      "Welcome! Let's create a story together. I'll ask you questions, and you can provide answers. First, please tell me the name of your main character:"
     );
 
     return;
@@ -441,7 +449,7 @@ function handleUserInput() {
     const errorMessageElement = document.createElement("div");
     errorMessageElement.classList.add("message", "bot");
     errorMessageElement.innerText =
-      "Bot: Please try again or continue the story.";
+      "Robby: Please try again or continue the story.";
     chatContainer.appendChild(errorMessageElement);
     readAloud("Please try again or continue the story.");
 
@@ -469,10 +477,9 @@ function handleUserInput() {
         // Ask for the name again if it's not recognized
         const errorMessageElement = document.createElement("div");
         errorMessageElement.classList.add("message", "bot");
-        errorMessageElement.innerText =
-          "Bot: Please choose a valid name (Jess, Nick, or Winston).";
+        errorMessageElement.innerText = "Robby: Please choose a valid name.";
         chatContainer.appendChild(errorMessageElement);
-        readAloud("Please choose a valid name (Jess, Nick, or Winston).");
+        readAloud("Please choose a valid name.");
       }
     }
     if (!isNameSet) {
@@ -489,7 +496,7 @@ function handleUserInput() {
       const nextPrompt = chatPrompts[name][currentPromptIndex];
       const botMessageElement = document.createElement("div");
       botMessageElement.classList.add("message", "bot");
-      botMessageElement.innerText = nextPrompt.question;
+      botMessageElement.innerText = "Robby: " + nextPrompt.question;
       chatContainer.appendChild(botMessageElement);
       readAloud(nextPrompt.question);
       currentPromptIndex++;
@@ -508,6 +515,7 @@ function handleUserInput() {
 }
 
 let selectedStoryIndex = 0;
+let selectedGeneratedStoryIndex = 0;
 const inputBarElement = document.getElementById("input-bar");
 const startDrawingActionBarElement = document.getElementById(
   "start-drawing-action-bar"
@@ -520,11 +528,11 @@ function displayStory() {
   let characterFound = false;
 
   let i = 0;
-  stories.forEach((story) => {
+  storiesGenerated.forEach((story) => {
     if (story.name.toLowerCase().includes(currentCharacter)) {
       characterFound = true;
       storyContent = story.pages.map((page) => page.text).join("\n\n");
-      selectedStoryIndex = i;
+      selectedGeneratedStoryIndex = i;
     }
     i++;
   });
@@ -535,7 +543,7 @@ function displayStory() {
 
   const storyMessageElement = document.createElement("div");
   storyMessageElement.classList.add("message", "bot");
-  storyMessageElement.innerHTML = `Bot: ${storyContent}`;
+  storyMessageElement.innerHTML = `Robby: ${storyContent}`;
   chatContainer.appendChild(storyMessageElement);
 
   readAloud(storyContent);
@@ -550,6 +558,9 @@ function displayStory() {
 }
 
 function goToStoryPage() {
+  stories.push(storiesGenerated[selectedGeneratedStoryIndex]);
+  selectedStoryIndex = stories.length - 1;
+  localStorage.setItem("stories", JSON.stringify(stories));
   window.location.href = `story.html?storyIndex=${selectedStoryIndex}`;
 }
 
