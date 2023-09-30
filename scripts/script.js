@@ -460,6 +460,11 @@ function handleUserInput() {
   }
 
   if (userInput) {
+    if (userInput.toLowerCase() == "reset") {
+      localStorage.setItem("stories", "");
+      window.location.reload();
+      return;
+    }
     // Display user message
     const userMessageElement = document.createElement("div");
     userMessageElement.classList.add("message", "user");
