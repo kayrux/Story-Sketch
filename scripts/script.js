@@ -506,7 +506,13 @@ function handleUserInput() {
     chatContainer.scrollTop = chatContainer.scrollHeight;
   }
 }
+
 let selectedStoryIndex = 0;
+const inputBarElement = document.getElementById("input-bar");
+const startDrawingActionBarElement = document.getElementById(
+  "start-drawing-action-bar"
+);
+
 function displayStory() {
   const chatContainer = document.getElementById("chat-container");
   // const currentCharacter = document.getElementById("user-input").value.toLowerCase();
@@ -538,12 +544,17 @@ function displayStory() {
   continueButton.style.display = "inline";
 
   chatContainer.scrollTop = chatContainer.scrollHeight;
-  const goToStoryButton = document.getElementById("go-to-story-button");
-  goToStoryButton.style.display = "block"; // Change to "inline" if needed
+
+  inputBarElement.style.display = "none";
+  startDrawingActionBarElement.style.display = "flex";
 }
 
 function goToStoryPage() {
   window.location.href = `story.html?storyIndex=${selectedStoryIndex}`;
+}
+
+function startOver() {
+  window.location.reload();
 }
 
 // Initialize a variable to track the voice state

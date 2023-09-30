@@ -112,9 +112,17 @@
         justify-content: center;
       }
 
-      .input-bar {
+      #input-bar {
         display: flex;
         align-items: center;
+      }
+
+      #start-drawing-action-bar {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        margin-top: 5px;
+        column-gap: 2rem;
       }
 
       .flex-col {
@@ -137,6 +145,16 @@
         display: flex;
         justify-content: right;
         margin-bottom: 0.5rem;
+      }
+
+      #draw-story-btn {
+        background-color: #00e9c3;
+        font-weight: bold;
+        width: 100%;
+      }
+
+      #start-over-btn {
+        min-width: 120px;
       }
     </style>
   </head>
@@ -161,14 +179,14 @@
       Start Drawing
     </button>
     <button onclick="window.location.href = 'help.html';">Help</button> -->
-    <button
+    <!-- <button
       id="go-to-story-button"
       class="blue-button"
       style="display: none"
       onclick="goToStoryPage()"
     >
       Go to Story
-    </button>
+    </button> -->
 
     <!-- Video container -->
     <div id="video-container">
@@ -206,7 +224,7 @@
           <div id="chat-container"></div>
 
           <!-- User input field and submit button -->
-          <div class="input-bar flex-row">
+          <div id="input-bar" class="flex-row">
             <input type="text" id="user-input" placeholder="Your answer..." />
             <button
               id="submit-button"
@@ -218,6 +236,22 @@
             <!-- <button id="go-to-story-button" class="blue-button" style="display: none;" onclick="goToStoryPage()">
               Go to Story
             </button> -->
+          </div>
+          <div id="start-drawing-action-bar" class="flex-row">
+            <button
+              id="draw-story-btn"
+              class="blue-button"
+              onclick="goToStoryPage()"
+            >
+              Begin Your Drawing Adventure!
+            </button>
+            <button
+              id="start-over-btn"
+              class="blue-button"
+              onclick="startOver()"
+            >
+              Start over
+            </button>
           </div>
         </div>
       </div>
