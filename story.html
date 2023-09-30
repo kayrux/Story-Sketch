@@ -130,7 +130,11 @@
       <div id="doodle-container">
         <div id="pen-size-container">
           <div id="pen-size-wrapper">
-              <input type="range" id="pen-size" min="1" max="100" value="15">
+              <div class="tooltip">
+                <input type="range" id="pen-size" min="1" max="100" value="15">
+
+                <span class="tooltiptext">Pen size</span>
+              </div>
           </div>
         </div>
         <canvas id="doodle" width="656px" height="550px"></canvas>
