@@ -6,6 +6,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="stylesheet" href="styles/nav.css" />
     <style>
       /* Add chat styles for children */
       #chat-container {
@@ -140,8 +141,20 @@
   </head>
   <body>
     <!-- Home page -->
-    <div class="top-bar">
+    <!-- <div class="top-bar">
       <div>Welcome to ChatBot Adventures!</div>
+    </div> -->
+    <div class="nav-bar">
+      <div class="left-nav"></div>
+      <div class="middle-nav">
+        <div class="title">Welcome to ChatBot Adventures!</div>
+      </div>
+      <div class="right-nav">
+        <button id="voice-button" class="blue-button">
+          <i id="sound-icon" class="fa fa-volume-off" aria-hidden="true"></i>
+          Mute
+        </button>
+      </div>
     </div>
     <!-- <button onclick="window.location.href = 'story.html';">
       Start Drawing
@@ -157,13 +170,6 @@
     </div>
 
     <div class="content-container">
-      <div id="top-action-bar">
-        <button id="voice-button" class="blue-button">
-          <i id="sound-icon" class="fa fa-volume-off" aria-hidden="true"></i>
-          Mute
-        </button>
-      </div>
-
       <div id="story-generation-container">
         <div class="bot-container">
           <!-- Bot character image -->
