@@ -1,4 +1,4 @@
-let storyGenerated = [
+let stories = [
   {
     name: "jess",
     title: "Jess's Adventure in the Enchanted Forest",
@@ -30,157 +30,173 @@ let storyGenerated = [
     ],
   },
   {
-    name: "winston",
-    title: "Winston's Magical Birthday Party",
+    name: "Winston",
+    title: "Winston: The Hero of Metroville",
     pages: [
       {
-        text: "Winston was a young wizard with a big heart and a bigger dream. He always wished to have a magical birthday party.",
+        text: "In the heart of a bustling metropolis known as Metroville, there lived an ordinary young man named Winston. He resided in a world of skyscrapers and city lights, where the pace of life was as fast as the subway trains that crisscrossed the city.",
         img: "",
       },
       {
-        text: "On his birthday, Winston invited all his friends and family to his cozy wizard's cottage. He wore a sparkling robe and a hat adorned with stars.",
+        text: "But Winston was destined for an extraordinary journey. One fateful day, he discovered a hidden power within himself - the power to become a superhero. With newfound abilities, he joined forces with other remarkable heroes in Metroville to protect their beloved city from a formidable supervillain threat.",
         img: "",
       },
       {
-        text: "As the clock struck noon, Winston raised his wand and shouted, 'Abracadabra!' Suddenly, the room was filled with floating balloons and twinkling lights. Everyone gasped in amazement.",
+        text: "Winston's superhero friends were a diverse group, each possessing unique talents. There was Captain Thunder, whose thunderous roars could shake buildings, Laserbeam Girl, who could emit beams of energy from her hands, and Techno-Wizard, a genius with gadgets and technology beyond imagination.",
         img: "",
       },
       {
-        text: "Winston's cake transformed into a castle, and the candles turned into tiny fire-breathing dragons. The children giggled with delight as they enjoyed the enchanted feast.",
+        text: "The supervillain posed a grave danger to Metroville, and it would take all the combined powers and teamwork of Winston and his friends to defeat this menacing adversary. They devised clever strategies and used their distinct abilities to outsmart the supervillain at every turn.",
         img: "",
       },
       {
-        text: "Winston then performed magic tricks, making colorful scarves disappear and reappear. He even turned ordinary flowers into beautiful butterflies, leaving everyone in awe.",
+        text: "However, the battle was not without its challenges. They faced several close calls, and the supervillain proved to be a formidable foe. But Winston and his friends knew that they had to stay united, for it was their unwavering determination and cooperation that would ultimately save Metroville from destruction.",
         img: "",
       },
       {
-        text: "As the day turned to night, Winston's party ended with a grand display of fireworks that lit up the sky. It was a birthday party like no other, and Winston's dream had come true.",
+        text: "Once the supervillain was defeated and Metroville was safe, Winston continued to protect the city from any new threats that emerged. But he didn't stop there. He used his incredible abilities to help the community and make the city a better place for all its inhabitants.",
         img: "",
       },
       {
-        text: "With smiles on their faces and hearts full of magic, Winston and his friends knew that this would be a birthday they would remember forever.",
+        text: "Whether it was rescuing kittens from trees, assisting firefighters during emergencies, or simply spreading kindness throughout the city, Winston showed that being a hero meant more than just defeating supervillains. It meant making a positive impact on the lives of those around him.",
+        img: "",
+      },
+      {
+        text: "And so, Winston became a symbol of hope and inspiration in Metroville, a reminder that even in the busiest of cities, heroes could emerge from the most unexpected places, and they could change the world, one heroic act at a time.",
         img: "",
       },
     ],
   },
   {
-    name: "nick",
-    title: "Nick and the Lost Star",
+    name: "Nick",
+    title: "Nick's Adventure in the Enchanted Forest",
     pages: [
       {
-        text: "In a small village nestled between rolling hills, there lived a young boy named Nick. Nick was known for his curiosity and love for the night sky.",
+        text: "In a world far removed from the bustling cities and sleepy towns, there existed a young boy named Nick. Nick wasn't your typical young adventurer; he lived in a treehouse high above the forest floor, nestled deep within the heart of the Enchanted Forest.",
         img: "",
       },
       {
-        text: "One clear night, while gazing at the stars, Nick noticed that one star was missing from the sky. It was his favorite star, the one he had named 'Twinkle.'",
+        text: "Nick's treehouse was a magical place, surrounded by ancient trees that whispered secrets to the wind and fireflies that lit up the night. From his leafy perch, Nick had a view of the entire forest, which was filled with mysteries and wonders waiting to be discovered.",
         img: "",
       },
       {
-        text: "Determined to find his lost star, Nick embarked on an adventure. Armed with a flashlight and a map of the constellations, he set out into the dark woods.",
+        text: "One day, as Nick was exploring the depths of the Enchanted Forest, he stumbled upon a hidden treasure. But this was no ordinary treasure; it was guarded by talking animals, each with their own unique abilities and personalities.",
         img: "",
       },
       {
-        text: "Along his journey, Nick met woodland creatures who offered their help. The wise owl guided him with its hoots, and the fireflies illuminated his path.",
+        text: "Nick knew he couldn't face this challenge alone, so he enlisted the help of his friends who called the Enchanted Forest their home. His companions included a wise owl, a mischievous squirrel, and a brave rabbit, each with their own special qualities that would prove invaluable on their quest.",
         img: "",
       },
       {
-        text: "After a long search, Nick stumbled upon Twinkle, caught in the branches of a tall tree. With gentle hands, he set the star free, and it twinkled brightly in the night sky once more.",
+        text: "To outsmart the talking animals guarding the treasure, Nick and his friends used the power of teamwork and kindness. They shared stories and laughter, offered their help when needed, and slowly but surely, the talking animals became their allies.",
         img: "",
       },
       {
-        text: "Twinkle thanked Nick with a magical sparkle that lit up his heart. Nick returned home, knowing that even in the darkest of times, there's always a way to find your own light.",
+        text: "Through this journey, Nick and his friends learned a valuable lesson - that cooperation and kindness can open doors that were once locked. With the help of their newfound animal friends, they successfully claimed the hidden treasure as their own.",
+        img: "",
+      },
+      {
+        text: "But the story didn't end there. Instead of keeping the treasure for themselves, Nick and his friends decided to use it for the greater good of the Enchanted Forest. They improved the forest's beauty, helped its magical creatures, and shared the treasure's benefits with all who called the forest home.",
+        img: "",
+      },
+      {
+        text: "As time passed, the Enchanted Forest became an even more magical place, and Nick and his friends continued to explore its wonders and protect its secrets. The hidden treasure had not only brought them good fortune but had also made the Enchanted Forest an even more enchanting and harmonious place to live.",
+        img: "",
+      },
+      {
+        text: "And so, Nick's adventure in the Enchanted Forest became a legend, a tale of friendship, cooperation, and the transformative power of kindness, reminding all who heard it that magic truly exists in the world, and it can be found in the most unexpected places.",
         img: "",
       },
     ],
   },
 ];
 
-let stories = [
-  {
-    title: "Dino's Adventure: The Magical Tree of Leaves",
-    tags: ["trees", "dinosaurs", "leaves"],
-    frontPage: "",
-    pages: [
-      {
-        text: "Once upon a time, in a magical land filled with colorful dinosaurs and towering trees, there lived a young and curious dinosaur named Dino...",
-        img: "",
-      },
-      {
-        text: "One sunny morning, Dino decided to embark on an exciting adventure to find the legendary 'Magical Tree of Leaves.' According to the ancient tales, this tree had the most beautiful and colorful leaves that held incredible powers...",
-        img: "",
-      },
-      {
-        text: "As Dino journeyed through the forest, he met his friends along the way—a wise Triceratops named Tria and a playful Pterodactyl named Pete...",
-        img: "",
-      },
-      {
-        text: "Through the dense forest and across bubbling streams, they searched for clues that would lead them to the magical tree. Suddenly, they stumbled upon a hidden path filled with colorful flowers and sparkling rocks...",
-        img: "",
-      },
-      {
-        text: "Following the path, they reached a clearing where an enormous tree stood, covered in leaves of every hue imaginable...",
-        img: "",
-      },
-      {
-        text: "Excited and in awe, they approached the tree, and as they touched the leaves, something extraordinary happened. The leaves whispered ancient tales and secrets, filling their hearts with wonder and joy...",
-        img: "",
-      },
-      {
-        text: "Dino, Tria, and Pete learned that the magical leaves could grant a wish to anyone with a kind and pure heart. Overwhelmed with joy, they each made a wish—to spread love, kindness, and happiness throughout their forest and beyond...",
-        img: "",
-      },
-      {
-        text: "As they made their wishes, the tree sprinkled a dust of magic over them, sealing their promises to the forest and its creatures...",
-        img: "",
-      },
-      {
-        text: "Their journey back was filled with laughter and excitement as they shared their newfound knowledge with fellow dinosaurs...",
-        img: "",
-      },
-      {
-        text: "And so, in the heart of the enchanting forest, Dino and his friends continued to spread love and kindness, making their world a better place for all dinosaurs, trees, and leaves, leaving a lasting legacy for generations to come.",
-        img: "",
-      },
-    ],
-  },
-  {
-    title: "The Adventure of Sammy the Snail",
-    pages: [
-      {
-        text: "Once upon a time, in a magical garden, lived a curious snail named Sammy. Sammy was unlike any other snail in the garden. Sammy had a dream - a dream to see the world beyond the garden.",
-        img: "",
-      },
-      {
-        text: "Sammy spent his days exploring the garden, talking to the wise old trees and friendly ladybugs. One day, while chatting with a butterfly named Bella, Sammy shared his dream of adventure.",
-        img: "",
-      },
-      {
-        text: "Bella said, 'Why don't you go on an adventure right here in the garden? There's so much to discover and learn!' Sammy thought this was a splendid idea and set off on his very first adventure.",
-        img: "",
-      },
-      {
-        text: "Sammy discovered a hidden trail behind the flower bushes. He followed it and found a secret garden with magical glowing flowers. 'Wow!' Sammy exclaimed, mesmerized by the beauty.",
-        img: "",
-      },
-      {
-        text: "In this magical garden, Sammy met a wise old snail named Grandpa Sheldon. Grandpa Sheldon shared stories of his own adventures and gave Sammy a special amulet that would guide him on his journey.",
-        img: "",
-      },
-      {
-        text: "With the amulet around his neck, Sammy felt a burst of courage. He embarked on a grand adventure, meeting friendly creatures and overcoming challenges. He realized that even small creatures like him could have big adventures.",
-        img: "",
-      },
-      {
-        text: "Sammy returned to his garden, filled with excitement and new stories to tell. He knew that his dream of adventure had come true, right in his own backyard.",
-        img: "",
-      },
-      {
-        text: "And so, Sammy the Snail continued to have many more exciting adventures in the garden, sharing his tales with all his friends, and inspiring them to dream big too.",
-        img: "",
-      },
-    ],
-  },
-];
+// let stories = [
+//   {
+//     title: "Dino's Adventure: The Magical Tree of Leaves",
+//     tags: ["trees", "dinosaurs", "leaves"],
+//     frontPage: "",
+//     pages: [
+//       {
+//         text: "Once upon a time, in a magical land filled with colorful dinosaurs and towering trees, there lived a young and curious dinosaur named Dino...",
+//         img: "",
+//       },
+//       {
+//         text: "One sunny morning, Dino decided to embark on an exciting adventure to find the legendary 'Magical Tree of Leaves.' According to the ancient tales, this tree had the most beautiful and colorful leaves that held incredible powers...",
+//         img: "",
+//       },
+//       {
+//         text: "As Dino journeyed through the forest, he met his friends along the way—a wise Triceratops named Tria and a playful Pterodactyl named Pete...",
+//         img: "",
+//       },
+//       {
+//         text: "Through the dense forest and across bubbling streams, they searched for clues that would lead them to the magical tree. Suddenly, they stumbled upon a hidden path filled with colorful flowers and sparkling rocks...",
+//         img: "",
+//       },
+//       {
+//         text: "Following the path, they reached a clearing where an enormous tree stood, covered in leaves of every hue imaginable...",
+//         img: "",
+//       },
+//       {
+//         text: "Excited and in awe, they approached the tree, and as they touched the leaves, something extraordinary happened. The leaves whispered ancient tales and secrets, filling their hearts with wonder and joy...",
+//         img: "",
+//       },
+//       {
+//         text: "Dino, Tria, and Pete learned that the magical leaves could grant a wish to anyone with a kind and pure heart. Overwhelmed with joy, they each made a wish—to spread love, kindness, and happiness throughout their forest and beyond...",
+//         img: "",
+//       },
+//       {
+//         text: "As they made their wishes, the tree sprinkled a dust of magic over them, sealing their promises to the forest and its creatures...",
+//         img: "",
+//       },
+//       {
+//         text: "Their journey back was filled with laughter and excitement as they shared their newfound knowledge with fellow dinosaurs...",
+//         img: "",
+//       },
+//       {
+//         text: "And so, in the heart of the enchanting forest, Dino and his friends continued to spread love and kindness, making their world a better place for all dinosaurs, trees, and leaves, leaving a lasting legacy for generations to come.",
+//         img: "",
+//       },
+//     ],
+//   },
+//   {
+//     title: "The Adventure of Sammy the Snail",
+//     pages: [
+//       {
+//         text: "Once upon a time, in a magical garden, lived a curious snail named Sammy. Sammy was unlike any other snail in the garden. Sammy had a dream - a dream to see the world beyond the garden.",
+//         img: "",
+//       },
+//       {
+//         text: "Sammy spent his days exploring the garden, talking to the wise old trees and friendly ladybugs. One day, while chatting with a butterfly named Bella, Sammy shared his dream of adventure.",
+//         img: "",
+//       },
+//       {
+//         text: "Bella said, 'Why don't you go on an adventure right here in the garden? There's so much to discover and learn!' Sammy thought this was a splendid idea and set off on his very first adventure.",
+//         img: "",
+//       },
+//       {
+//         text: "Sammy discovered a hidden trail behind the flower bushes. He followed it and found a secret garden with magical glowing flowers. 'Wow!' Sammy exclaimed, mesmerized by the beauty.",
+//         img: "",
+//       },
+//       {
+//         text: "In this magical garden, Sammy met a wise old snail named Grandpa Sheldon. Grandpa Sheldon shared stories of his own adventures and gave Sammy a special amulet that would guide him on his journey.",
+//         img: "",
+//       },
+//       {
+//         text: "With the amulet around his neck, Sammy felt a burst of courage. He embarked on a grand adventure, meeting friendly creatures and overcoming challenges. He realized that even small creatures like him could have big adventures.",
+//         img: "",
+//       },
+//       {
+//         text: "Sammy returned to his garden, filled with excitement and new stories to tell. He knew that his dream of adventure had come true, right in his own backyard.",
+//         img: "",
+//       },
+//       {
+//         text: "And so, Sammy the Snail continued to have many more exciting adventures in the garden, sharing his tales with all his friends, and inspiring them to dream big too.",
+//         img: "",
+//       },
+//     ],
+//   },
+// ];
 
 const storedStoriesJSON = localStorage.getItem("stories");
 let isVoiceMuted = true;
@@ -490,18 +506,21 @@ function handleUserInput() {
     chatContainer.scrollTop = chatContainer.scrollHeight;
   }
 }
-
+let selectedStoryIndex = 0;
 function displayStory() {
   const chatContainer = document.getElementById("chat-container");
   // const currentCharacter = document.getElementById("user-input").value.toLowerCase();
   let storyContent = "";
   let characterFound = false;
 
-  storyGenerated.forEach((story) => {
+  let i = 0;
+  stories.forEach((story) => {
     if (story.name.toLowerCase().includes(currentCharacter)) {
       characterFound = true;
       storyContent = story.pages.map((page) => page.text).join("\n\n");
+      selectedStoryIndex = i;
     }
+    i++;
   });
 
   if (!characterFound) {
@@ -519,6 +538,12 @@ function displayStory() {
   continueButton.style.display = "inline";
 
   chatContainer.scrollTop = chatContainer.scrollHeight;
+  const goToStoryButton = document.getElementById("go-to-story-button");
+  goToStoryButton.style.display = "block"; // Change to "inline" if needed
+}
+
+function goToStoryPage() {
+  window.location.href = `story.html?storyIndex=${selectedStoryIndex}`;
 }
 
 // Initialize a variable to track the voice state
