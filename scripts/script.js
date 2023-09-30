@@ -1,5 +1,110 @@
-let stories = [
+let storyGenerated = [
   {
+    name:"jess",
+    title: "Jess's Adventure in the Enchanted Forest",
+    pages: [
+      {
+        text: "Once upon a time, in a peaceful village, there lived a curious girl named Jess. She had a heart full of wonder and a head full of questions.",
+        img: ""
+      },
+      {
+        text: "One sunny morning, Jess decided to explore the mysterious Enchanted Forest that everyone in her village talked about. She packed a small picnic basket and set off on her journey.",
+        img: ""
+      },
+      {
+        text: "As she ventured deeper into the forest, the trees seemed to whisper secrets, and the flowers danced to the tune of the wind. Jess felt like she was in a magical world.",
+        img: ""
+      },
+      {
+        text: "She encountered talking animals, made friends with fairies, and even helped a lost gnome find his way home. Jess's day in the Enchanted Forest was filled with laughter and kindness.",
+        img: ""
+      },
+      {
+        text: "As the sun began to set, Jess realized it was time to return home. With a heart full of joy and stories to share, she headed back to her village, promising to visit the Enchanted Forest again.",
+        img: ""
+      },
+      {
+        text: "And so, Jess's adventure in the Enchanted Forest became a cherished memory, reminding her that the world is a magical place if you have a heart full of wonder.",
+        img: ""
+      }
+    ]
+   }
+    ,
+    {
+      name:"winston",
+      title: "Winston's Magical Birthday Party",
+      pages: [
+        {
+          text: "Winston was a young wizard with a big heart and a bigger dream. He always wished to have a magical birthday party.",
+          img: ""
+        },
+        {
+          text: "On his birthday, Winston invited all his friends and family to his cozy wizard's cottage. He wore a sparkling robe and a hat adorned with stars.",
+          img: ""
+        },
+        {
+          text: "As the clock struck noon, Winston raised his wand and shouted, 'Abracadabra!' Suddenly, the room was filled with floating balloons and twinkling lights. Everyone gasped in amazement.",
+          img: ""
+        },
+        {
+          text: "Winston's cake transformed into a castle, and the candles turned into tiny fire-breathing dragons. The children giggled with delight as they enjoyed the enchanted feast.",
+          img: ""
+        },
+        {
+          text: "Winston then performed magic tricks, making colorful scarves disappear and reappear. He even turned ordinary flowers into beautiful butterflies, leaving everyone in awe.",
+          img: ""
+        },
+        {
+          text: "As the day turned to night, Winston's party ended with a grand display of fireworks that lit up the sky. It was a birthday party like no other, and Winston's dream had come true.",
+          img: ""
+        },
+        {
+          text: "With smiles on their faces and hearts full of magic, Winston and his friends knew that this would be a birthday they would remember forever.",
+          img: ""
+        }
+      ]
+    },
+    {
+      name:"nick",
+      title: "Nick and the Lost Star",
+      pages: [
+        {
+          text: "In a small village nestled between rolling hills, there lived a young boy named Nick. Nick was known for his curiosity and love for the night sky.",
+          img: ""
+        },
+        {
+          text: "One clear night, while gazing at the stars, Nick noticed that one star was missing from the sky. It was his favorite star, the one he had named 'Twinkle.'",
+          img: ""
+        },
+        {
+          text: "Determined to find his lost star, Nick embarked on an adventure. Armed with a flashlight and a map of the constellations, he set out into the dark woods.",
+          img: ""
+        },
+        {
+          text: "Along his journey, Nick met woodland creatures who offered their help. The wise owl guided him with its hoots, and the fireflies illuminated his path.",
+          img: ""
+        },
+        {
+          text: "After a long search, Nick stumbled upon Twinkle, caught in the branches of a tall tree. With gentle hands, he set the star free, and it twinkled brightly in the night sky once more.",
+          img: ""
+        },
+        {
+          text: "Twinkle thanked Nick with a magical sparkle that lit up his heart. Nick returned home, knowing that even in the darkest of times, there's always a way to find your own light.",
+          img: ""
+        }
+      ]
+    }
+    
+  ]
+    
+  
+
+  
+
+let stories = [
+  
+  {
+
     title: "Dino's Adventure: The Magical Tree of Leaves",
     tags: ["trees", "dinosaurs", "leaves"],
     frontPage: "",
@@ -383,59 +488,38 @@ function handleUserInput() {
   }
 }
 
-// Function to display the story
-// Function to display the story
+
+
 function displayStory() {
   const chatContainer = document.getElementById("chat-container");
-
-  // Your story content goes here
+ // const currentCharacter = document.getElementById("user-input").value.toLowerCase();
   let storyContent = "";
+  let characterFound = false;
 
-  switch (currentCharacter.toLowerCase()) {
-    case "jess":
-      storyContent = `
-  Story 1: This is Jess's story.
-  // Insert Jess's story content here.
-`;
-      break;
+  storyGenerated.forEach(story => {
+    if (story.name.toLowerCase().includes(currentCharacter)) {
+      characterFound = true;
+      storyContent = story.pages.map(page => page.text).join("\n\n");
+    }
+  });
 
-    case "nick":
-      storyContent = `
-  Story 2: This is Nick's story.
-  // Insert Nick's story content here.
-`;
-      break;
-
-    case "winston":
-      storyContent = `
-  Story 3: This is Winston's story.
-  // Insert Winston's story content here.
-`;
-      break;
-
-    default:
-      // Handle the case where an unsupported character name is entered
-      storyContent = "Sorry, we couldn't find a story for that character.";
-      break;
+  if (!characterFound) {
+    storyContent = "Sorry, we couldn't find a story for that character.";
   }
 
-  // Display the story in the chat container
   const storyMessageElement = document.createElement("div");
   storyMessageElement.classList.add("message", "bot");
   storyMessageElement.innerHTML = `Bot: ${storyContent}`;
   chatContainer.appendChild(storyMessageElement);
 
-  // Read the story aloud
   readAloud(storyContent);
 
-  // Show the "Continue" button
   const continueButton = document.getElementById("continue-button");
   continueButton.style.display = "inline";
 
-  // Smoothly scroll to the bottom of the chat container
   chatContainer.scrollTop = chatContainer.scrollHeight;
 }
-//
+
 
 // Initialize a variable to track the voice state
 //let isVoiceMuted = false;
