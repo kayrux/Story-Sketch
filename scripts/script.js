@@ -1,110 +1,123 @@
+// Add an event listener to the "Go to Story" button
+document.getElementById("go-to-story-button").addEventListener("click", function () {
+  // Redirect to the story page
+  window.location.href = "story.html"; // Change "story.html" to the actual URL of your story page
+});
 let storyGenerated = [
   {
-    name:"jess",
+    name: "jess",
     title: "Jess's Adventure in the Enchanted Forest",
     pages: [
       {
         text: "Once upon a time, in a peaceful village, there lived a curious girl named Jess. She had a heart full of wonder and a head full of questions.",
-        img: ""
+        img: "",
       },
       {
         text: "One sunny morning, Jess decided to explore the mysterious Enchanted Forest that everyone in her village talked about. She packed a small picnic basket and set off on her journey.",
-        img: ""
+        img: "",
       },
       {
         text: "As she ventured deeper into the forest, the trees seemed to whisper secrets, and the flowers danced to the tune of the wind. Jess felt like she was in a magical world.",
-        img: ""
+        img: "",
       },
       {
         text: "She encountered talking animals, made friends with fairies, and even helped a lost gnome find his way home. Jess's day in the Enchanted Forest was filled with laughter and kindness.",
-        img: ""
+        img: "",
       },
       {
         text: "As the sun began to set, Jess realized it was time to return home. With a heart full of joy and stories to share, she headed back to her village, promising to visit the Enchanted Forest again.",
-        img: ""
+        img: "",
       },
       {
         text: "And so, Jess's adventure in the Enchanted Forest became a cherished memory, reminding her that the world is a magical place if you have a heart full of wonder.",
-        img: ""
-      }
-    ]
-   }
-    ,
+        img: "",
+      },
+    ],
+  },
+  {
+    name: "Winston",
+    title: "Winston: The Hero of Metroville",
+    pages: [
     {
-      name:"winston",
-      title: "Winston's Magical Birthday Party",
-      pages: [
-        {
-          text: "Winston was a young wizard with a big heart and a bigger dream. He always wished to have a magical birthday party.",
-          img: ""
-        },
-        {
-          text: "On his birthday, Winston invited all his friends and family to his cozy wizard's cottage. He wore a sparkling robe and a hat adorned with stars.",
-          img: ""
-        },
-        {
-          text: "As the clock struck noon, Winston raised his wand and shouted, 'Abracadabra!' Suddenly, the room was filled with floating balloons and twinkling lights. Everyone gasped in amazement.",
-          img: ""
-        },
-        {
-          text: "Winston's cake transformed into a castle, and the candles turned into tiny fire-breathing dragons. The children giggled with delight as they enjoyed the enchanted feast.",
-          img: ""
-        },
-        {
-          text: "Winston then performed magic tricks, making colorful scarves disappear and reappear. He even turned ordinary flowers into beautiful butterflies, leaving everyone in awe.",
-          img: ""
-        },
-        {
-          text: "As the day turned to night, Winston's party ended with a grand display of fireworks that lit up the sky. It was a birthday party like no other, and Winston's dream had come true.",
-          img: ""
-        },
-        {
-          text: "With smiles on their faces and hearts full of magic, Winston and his friends knew that this would be a birthday they would remember forever.",
-          img: ""
-        }
-      ]
+    text: "In the heart of a bustling metropolis known as Metroville, there lived an ordinary young man named Winston. He resided in a world of skyscrapers and city lights, where the pace of life was as fast as the subway trains that crisscrossed the city.",
+    img: "",
     },
     {
-      name:"nick",
-      title: "Nick and the Lost Star",
-      pages: [
-        {
-          text: "In a small village nestled between rolling hills, there lived a young boy named Nick. Nick was known for his curiosity and love for the night sky.",
-          img: ""
-        },
-        {
-          text: "One clear night, while gazing at the stars, Nick noticed that one star was missing from the sky. It was his favorite star, the one he had named 'Twinkle.'",
-          img: ""
-        },
-        {
-          text: "Determined to find his lost star, Nick embarked on an adventure. Armed with a flashlight and a map of the constellations, he set out into the dark woods.",
-          img: ""
-        },
-        {
-          text: "Along his journey, Nick met woodland creatures who offered their help. The wise owl guided him with its hoots, and the fireflies illuminated his path.",
-          img: ""
-        },
-        {
-          text: "After a long search, Nick stumbled upon Twinkle, caught in the branches of a tall tree. With gentle hands, he set the star free, and it twinkled brightly in the night sky once more.",
-          img: ""
-        },
-        {
-          text: "Twinkle thanked Nick with a magical sparkle that lit up his heart. Nick returned home, knowing that even in the darkest of times, there's always a way to find your own light.",
-          img: ""
-        }
-      ]
-    }
-    
-  ]
-    
-  
-
-  
+    text: "But Winston was destined for an extraordinary journey. One fateful day, he discovered a hidden power within himself - the power to become a superhero. With newfound abilities, he joined forces with other remarkable heroes in Metroville to protect their beloved city from a formidable supervillain threat.",
+    img: "",
+    },
+    {
+    text: "Winston's superhero friends were a diverse group, each possessing unique talents. There was Captain Thunder, whose thunderous roars could shake buildings, Laserbeam Girl, who could emit beams of energy from her hands, and Techno-Wizard, a genius with gadgets and technology beyond imagination.",
+    img: "",
+    },
+    {
+    text: "The supervillain posed a grave danger to Metroville, and it would take all the combined powers and teamwork of Winston and his friends to defeat this menacing adversary. They devised clever strategies and used their distinct abilities to outsmart the supervillain at every turn.",
+    img: "",
+    },
+    {
+    text: "However, the battle was not without its challenges. They faced several close calls, and the supervillain proved to be a formidable foe. But Winston and his friends knew that they had to stay united, for it was their unwavering determination and cooperation that would ultimately save Metroville from destruction.",
+    img: "",
+    },
+    {
+    text: "Once the supervillain was defeated and Metroville was safe, Winston continued to protect the city from any new threats that emerged. But he didn't stop there. He used his incredible abilities to help the community and make the city a better place for all its inhabitants.",
+    img: "",
+    },
+    {
+    text: "Whether it was rescuing kittens from trees, assisting firefighters during emergencies, or simply spreading kindness throughout the city, Winston showed that being a hero meant more than just defeating supervillains. It meant making a positive impact on the lives of those around him.",
+    img: "",
+    },
+    {
+    text: "And so, Winston became a symbol of hope and inspiration in Metroville, a reminder that even in the busiest of cities, heroes could emerge from the most unexpected places, and they could change the world, one heroic act at a time.",
+    img: "",
+    },
+    ],
+    },
+  {
+    name: "Nick",
+    title: "Nick's Adventure in the Enchanted Forest",
+    pages: [
+    {
+    text: "In a world far removed from the bustling cities and sleepy towns, there existed a young boy named Nick. Nick wasn't your typical young adventurer; he lived in a treehouse high above the forest floor, nestled deep within the heart of the Enchanted Forest.",
+    img: "",
+    },
+    {
+    text: "Nick's treehouse was a magical place, surrounded by ancient trees that whispered secrets to the wind and fireflies that lit up the night. From his leafy perch, Nick had a view of the entire forest, which was filled with mysteries and wonders waiting to be discovered.",
+    img: "",
+    },
+    {
+    text: "One day, as Nick was exploring the depths of the Enchanted Forest, he stumbled upon a hidden treasure. But this was no ordinary treasure; it was guarded by talking animals, each with their own unique abilities and personalities.",
+    img: "",
+    },
+    {
+    text: "Nick knew he couldn't face this challenge alone, so he enlisted the help of his friends who called the Enchanted Forest their home. His companions included a wise owl, a mischievous squirrel, and a brave rabbit, each with their own special qualities that would prove invaluable on their quest.",
+    img: "",
+    },
+    {
+    text: "To outsmart the talking animals guarding the treasure, Nick and his friends used the power of teamwork and kindness. They shared stories and laughter, offered their help when needed, and slowly but surely, the talking animals became their allies.",
+    img: "",
+    },
+    {
+    text: "Through this journey, Nick and his friends learned a valuable lesson - that cooperation and kindness can open doors that were once locked. With the help of their newfound animal friends, they successfully claimed the hidden treasure as their own.",
+    img: "",
+    },
+    {
+    text: "But the story didn't end there. Instead of keeping the treasure for themselves, Nick and his friends decided to use it for the greater good of the Enchanted Forest. They improved the forest's beauty, helped its magical creatures, and shared the treasure's benefits with all who called the forest home.",
+    img: "",
+    },
+    {
+    text: "As time passed, the Enchanted Forest became an even more magical place, and Nick and his friends continued to explore its wonders and protect its secrets. The hidden treasure had not only brought them good fortune but had also made the Enchanted Forest an even more enchanting and harmonious place to live.",
+    img: "",
+    },
+    {
+    text: "And so, Nick's adventure in the Enchanted Forest became a legend, a tale of friendship, cooperation, and the transformative power of kindness, reminding all who heard it that magic truly exists in the world, and it can be found in the most unexpected places.",
+    img: "",
+    },
+    ],
+    },    
+];
 
 let stories = [
-  
   {
-
     title: "Dino's Adventure: The Magical Tree of Leaves",
     tags: ["trees", "dinosaurs", "leaves"],
     frontPage: "",
@@ -251,6 +264,8 @@ function createStoryCard(story, index) {
   return storyCard;
 }
 
+
+
 function populateStories() {
   let i = 0;
   for (const story of stories) {
@@ -361,6 +376,18 @@ let isStoryDisplayed = false;
 let isNameSet = false; // To track if the user's name has been set
 
 let topActionBarElement = document.getElementById("top-action-bar");
+let userInputElement = document.getElementById("user-input");
+
+// Execute a function when the user presses a key on the keyboard
+userInputElement.addEventListener("keypress", function (event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    handleUserInput();
+  }
+});
 
 // Function to display chat messages
 function displayMessages() {
@@ -428,7 +455,6 @@ function handleUserInput() {
     // Clear the input field
     document.getElementById("user-input").value = "";
 
-    toggleVoice();
     return;
   }
 
@@ -489,17 +515,16 @@ function handleUserInput() {
 }
 
 
-
 function displayStory() {
   const chatContainer = document.getElementById("chat-container");
- // const currentCharacter = document.getElementById("user-input").value.toLowerCase();
+  // const currentCharacter = document.getElementById("user-input").value.toLowerCase();
   let storyContent = "";
   let characterFound = false;
 
-  storyGenerated.forEach(story => {
+  storyGenerated.forEach((story) => {
     if (story.name.toLowerCase().includes(currentCharacter)) {
       characterFound = true;
-      storyContent = story.pages.map(page => page.text).join("\n\n");
+      storyContent = story.pages.map((page) => page.text).join("\n\n");
     }
   });
 
@@ -518,8 +543,9 @@ function displayStory() {
   continueButton.style.display = "inline";
 
   chatContainer.scrollTop = chatContainer.scrollHeight;
+  const goToStoryButton = document.getElementById("go-to-story-button");
+  goToStoryButton.style.display = "block"; // Change to "inline" if needed
 }
-
 
 // Initialize a variable to track the voice state
 //let isVoiceMuted = false;
@@ -534,13 +560,13 @@ function toggleVoice() {
     // Unmute the voice
     // synth.resume();
     isMuted = false;
-    voiceButton.textContent = "Turn Off Voice";
+    voiceButton.textContent = "Mute";
   } else {
     // Mute the voice
     isMuted = true;
     // synth.pause();
     // synth.cancel();
-    voiceButton.textContent = "Turn On Voice";
+    voiceButton.textContent = "Unmute";
   }
 
   // Toggle the voice state
@@ -582,6 +608,7 @@ function toggleMute() {
 document.getElementById("voice-button").addEventListener("click", toggleMute);
 
 //
+
 
 // Function to continue the video
 function continueVideo() {
