@@ -1,126 +1,126 @@
 let storiesGenerated = [
   {
-  name: "Jess",
-  title: "Jess's Adventure in the Candy Planet",
-  pages: [
-    {
-      text: "Once upon a time, in a land far, far away, there lived a girl named Jess. But Jess didn't live in an ordinary place; she lived on a new planet made entirely of candy!",
-      img: "",
-    },
-    {
-      text: "On the candy planet, the trees were made of licorice, the rivers flowed with chocolate, and the mountains were made of cotton candy. It was a sweet and sugary paradise where every day felt like a delicious adventure.",
-      img: "",
-    },
-    {
-      text: "One day, something unusual happened in this sugary paradise. The candy inhabitants began to experience a problem with cavities. Sweet treats were becoming scarce, and everyone was worried about the future of their candy planet.",
-      img: "",
-    },
-    {
-      text: "Determined to help her friends and the candy planet, Jess embarked on a quest to solve the cavity crisis. She knew she couldn't do it alone, so she sought the help of her best friend, Ginger, a lively gingerbread man.",
-      img: "",
-    },
-    {
-      text: "Ginger had a secret that could be the key to solving the problem. He knew the way to a special dentist who could help cure the cavities. With Ginger's guidance, Jess and her friends set off on an exciting journey across the candy planet.",
-      img: "",
-    },
-    {
-      text: "Their journey was filled with challenges and obstacles. They had to cross a river of sticky caramel, climb the towering candy cane mountains, and even navigate through a forest of licorice vines. But along the way, they discovered new and exotic candy from different planets, making their adventure even sweeter.",
-      img: "",
-    },
-    {
-      text: "Finally, after a long and sugary journey, they reached the dentist's office, which was nestled atop a hill made of sparkling sugar crystals. The dentist, with her candy cane staff and chocolate-filled syringes, worked tirelessly to treat the cavities and save the candy planet.",
-      img: "",
-    },
-    {
-      text: "With the dentist's help, the candy planet was on its way to recovery. Jess, Ginger, and their friends returned home, their hearts as light as marshmallow clouds. They had not only saved their beloved candy planet but had also made delightful memories along the way.",
-      img: "",
-    },
-    {
-      text: "And so, the tale of Jess's adventure in the candy planet became a legendary story in their sugary world, reminding everyone that with determination, friendship, and a little bit of dental care, even the sweetest problems can be solved.",
-      img: "",
-    },
-  ],
-},
+    name: "Jess",
+    title: "Jess's Adventure in the Candy Planet",
+    pages: [
+      {
+        text: "Once upon a time, in a land far, far away, there lived a girl named Jess. But Jess didn't live in an ordinary place; she lived on a new planet made entirely of candy!",
+        img: "",
+      },
+      {
+        text: "On the candy planet, the trees were made of licorice, the rivers flowed with chocolate, and the mountains were made of cotton candy. It was a sweet and sugary paradise where every day felt like a delicious adventure.",
+        img: "",
+      },
+      {
+        text: "One day, something unusual happened in this sugary paradise. The candy inhabitants began to experience a problem with cavities. Sweet treats were becoming scarce, and everyone was worried about the future of their candy planet.",
+        img: "",
+      },
+      {
+        text: "Determined to help her friends and the candy planet, Jess embarked on a quest to solve the cavity crisis. She knew she couldn't do it alone, so she sought the help of her best friend, Ginger, a lively gingerbread man.",
+        img: "",
+      },
+      {
+        text: "Ginger had a secret that could be the key to solving the problem. He knew the way to a special dentist who could help cure the cavities. With Ginger's guidance, Jess and her friends set off on an exciting journey across the candy planet.",
+        img: "",
+      },
+      {
+        text: "Their journey was filled with challenges and obstacles. They had to cross a river of sticky caramel, climb the towering candy cane mountains, and even navigate through a forest of licorice vines. But along the way, they discovered new and exotic candy from different planets, making their adventure even sweeter.",
+        img: "",
+      },
+      {
+        text: "Finally, after a long and sugary journey, they reached the dentist's office, which was nestled atop a hill made of sparkling sugar crystals. The dentist, with her candy cane staff and chocolate-filled syringes, worked tirelessly to treat the cavities and save the candy planet.",
+        img: "",
+      },
+      {
+        text: "With the dentist's help, the candy planet was on its way to recovery. Jess, Ginger, and their friends returned home, their hearts as light as marshmallow clouds. They had not only saved their beloved candy planet but had also made delightful memories along the way.",
+        img: "",
+      },
+      {
+        text: "And so, the tale of Jess's adventure in the candy planet became a legendary story in their sugary world, reminding everyone that with determination, friendship, and a little bit of dental care, even the sweetest problems can be solved.",
+        img: "",
+      },
+    ],
+  },
   {
-  name: "Winston",
-  title: "Winston: The Hero of Metroville",
-  pages: [
-    {
-      text: "In the heart of a bustling metropolis known as Metroville, there lived an ordinary young man named Winston. He resided in a world of skyscrapers and city lights, where the pace of life was as fast as the subway trains that crisscrossed the city.",
-      img: "",
-    },
-    {
-      text: "But Winston was destined for an extraordinary journey. One fateful day, he discovered a hidden power within himself - the power to become a superhero. With newfound abilities, he joined forces with other remarkable heroes in Metroville to protect their beloved city from a formidable supervillain threat.",
-      img: "",
-    },
-    {
-      text: "Winston's superhero friends were a diverse group, each possessing unique talents. There was Captain Thunder, whose thunderous roars could shake buildings, Laserbeam Girl, who could emit beams of energy from her hands, and Techno-Wizard, a genius with gadgets and technology beyond imagination.",
-      img: "",
-    },
-    {
-      text: "The supervillain posed a grave danger to Metroville, and it would take all the combined powers and teamwork of Winston and his friends to defeat this menacing adversary. They devised clever strategies and used their distinct abilities to outsmart the supervillain at every turn.",
-      img: "",
-    },
-    {
-      text: "However, the battle was not without its challenges. They faced several close calls, and the supervillain proved to be a formidable foe. But Winston and his friends knew that they had to stay united, for it was their unwavering determination and cooperation that would ultimately save Metroville from destruction.",
-      img: "",
-    },
-    {
-      text: "Once the supervillain was defeated and Metroville was safe, Winston continued to protect the city from any new threats that emerged. But he didn't stop there. He used his incredible abilities to help the community and make the city a better place for all its inhabitants.",
-      img: "",
-    },
-    {
-      text: "Whether it was rescuing kittens from trees, assisting firefighters during emergencies, or simply spreading kindness throughout the city, Winston showed that being a hero meant more than just defeating supervillains. It meant making a positive impact on the lives of those around him.",
-      img: "",
-    },
-    {
-      text: "And so, Winston became a symbol of hope and inspiration in Metroville, a reminder that even in the busiest of cities, heroes could emerge from the most unexpected places, and they could change the world, one heroic act at a time.",
-      img: "",
-    },
-  ],
-},
+    name: "Winston",
+    title: "Winston: The Hero of Metroville",
+    pages: [
+      {
+        text: "In the heart of a bustling metropolis known as Metroville, there lived an ordinary young man named Winston. He resided in a world of skyscrapers and city lights, where the pace of life was as fast as the subway trains that crisscrossed the city.",
+        img: "",
+      },
+      {
+        text: "But Winston was destined for an extraordinary journey. One fateful day, he discovered a hidden power within himself - the power to become a superhero. With newfound abilities, he joined forces with other remarkable heroes in Metroville to protect their beloved city from a formidable supervillain threat.",
+        img: "",
+      },
+      {
+        text: "Winston's superhero friends were a diverse group, each possessing unique talents. There was Captain Thunder, whose thunderous roars could shake buildings, Laserbeam Girl, who could emit beams of energy from her hands, and Techno-Wizard, a genius with gadgets and technology beyond imagination.",
+        img: "",
+      },
+      {
+        text: "The supervillain posed a grave danger to Metroville, and it would take all the combined powers and teamwork of Winston and his friends to defeat this menacing adversary. They devised clever strategies and used their distinct abilities to outsmart the supervillain at every turn.",
+        img: "",
+      },
+      {
+        text: "However, the battle was not without its challenges. They faced several close calls, and the supervillain proved to be a formidable foe. But Winston and his friends knew that they had to stay united, for it was their unwavering determination and cooperation that would ultimately save Metroville from destruction.",
+        img: "",
+      },
+      {
+        text: "Once the supervillain was defeated and Metroville was safe, Winston continued to protect the city from any new threats that emerged. But he didn't stop there. He used his incredible abilities to help the community and make the city a better place for all its inhabitants.",
+        img: "",
+      },
+      {
+        text: "Whether it was rescuing kittens from trees, assisting firefighters during emergencies, or simply spreading kindness throughout the city, Winston showed that being a hero meant more than just defeating supervillains. It meant making a positive impact on the lives of those around him.",
+        img: "",
+      },
+      {
+        text: "And so, Winston became a symbol of hope and inspiration in Metroville, a reminder that even in the busiest of cities, heroes could emerge from the most unexpected places, and they could change the world, one heroic act at a time.",
+        img: "",
+      },
+    ],
+  },
   {
-  name: "Nick",
-  title: "Nick's Adventure in the Enchanted Forest",
-  pages: [
-    {
-      text: "In a world far removed from the bustling cities and sleepy towns, there existed a young boy named Nick. Nick wasn't your typical young adventurer; he lived in a treehouse high above the forest floor, nestled deep within the heart of the Enchanted Forest.",
-      img: "",
-    },
-    {
-      text: "Nick's treehouse was a magical place, surrounded by ancient trees that whispered secrets to the wind and fireflies that lit up the night. From his leafy perch, Nick had a view of the entire forest, which was filled with mysteries and wonders waiting to be discovered.",
-      img: "",
-    },
-    {
-      text: "One day, as Nick was exploring the depths of the Enchanted Forest, he stumbled upon a hidden treasure. But this was no ordinary treasure; it was guarded by talking animals, each with their own unique abilities and personalities.",
-      img: "",
-    },
-    {
-      text: "Nick knew he couldn't face this challenge alone, so he enlisted the help of his friends who called the Enchanted Forest their home. His companions included a wise owl, a mischievous squirrel, and a brave rabbit, each with their own special qualities that would prove invaluable on their quest.",
-      img: "",
-    },
-    {
-      text: "To outsmart the talking animals guarding the treasure, Nick and his friends used the power of teamwork and kindness. They shared stories and laughter, offered their help when needed, and slowly but surely, the talking animals became their allies.",
-      img: "",
-    },
-    {
-      text: "Through this journey, Nick and his friends learned a valuable lesson - that cooperation and kindness can open doors that were once locked. With the help of their newfound animal friends, they successfully claimed the hidden treasure as their own.",
-      img: "",
-    },
-    {
-      text: "But the story didn't end there. Instead of keeping the treasure for themselves, Nick and his friends decided to use it for the greater good of the Enchanted Forest. They improved the forest's beauty, helped its magical creatures, and shared the treasure's benefits with all who called the forest home.",
-      img: "",
-    },
-    {
-      text: "As time passed, the Enchanted Forest became an even more magical place, and Nick and his friends continued to explore its wonders and protect its secrets. The hidden treasure had not only brought them good fortune but had also made the Enchanted Forest an even more enchanting and harmonious place to live.",
-      img: "",
-    },
-    {
-      text: "And so, Nick's adventure in the Enchanted Forest became a legend, a tale of friendship, cooperation, and the transformative power of kindness, reminding all who heard it that magic truly exists in the world, and it can be found in the most unexpected places.",
-      img: "",
-    },
-  ],
-},
+    name: "Nick",
+    title: "Nick's Adventure in the Enchanted Forest",
+    pages: [
+      {
+        text: "In a world far removed from the bustling cities and sleepy towns, there existed a young boy named Nick. Nick wasn't your typical young adventurer; he lived in a treehouse high above the forest floor, nestled deep within the heart of the Enchanted Forest.",
+        img: "",
+      },
+      {
+        text: "Nick's treehouse was a magical place, surrounded by ancient trees that whispered secrets to the wind and fireflies that lit up the night. From his leafy perch, Nick had a view of the entire forest, which was filled with mysteries and wonders waiting to be discovered.",
+        img: "",
+      },
+      {
+        text: "One day, as Nick was exploring the depths of the Enchanted Forest, he stumbled upon a hidden treasure. But this was no ordinary treasure; it was guarded by talking animals, each with their own unique abilities and personalities.",
+        img: "",
+      },
+      {
+        text: "Nick knew he couldn't face this challenge alone, so he enlisted the help of his friends who called the Enchanted Forest their home. His companions included a wise owl, a mischievous squirrel, and a brave rabbit, each with their own special qualities that would prove invaluable on their quest.",
+        img: "",
+      },
+      {
+        text: "To outsmart the talking animals guarding the treasure, Nick and his friends used the power of teamwork and kindness. They shared stories and laughter, offered their help when needed, and slowly but surely, the talking animals became their allies.",
+        img: "",
+      },
+      {
+        text: "Through this journey, Nick and his friends learned a valuable lesson - that cooperation and kindness can open doors that were once locked. With the help of their newfound animal friends, they successfully claimed the hidden treasure as their own.",
+        img: "",
+      },
+      {
+        text: "But the story didn't end there. Instead of keeping the treasure for themselves, Nick and his friends decided to use it for the greater good of the Enchanted Forest. They improved the forest's beauty, helped its magical creatures, and shared the treasure's benefits with all who called the forest home.",
+        img: "",
+      },
+      {
+        text: "As time passed, the Enchanted Forest became an even more magical place, and Nick and his friends continued to explore its wonders and protect its secrets. The hidden treasure had not only brought them good fortune but had also made the Enchanted Forest an even more enchanting and harmonious place to live.",
+        img: "",
+      },
+      {
+        text: "And so, Nick's adventure in the Enchanted Forest became a legend, a tale of friendship, cooperation, and the transformative power of kindness, reminding all who heard it that magic truly exists in the world, and it can be found in the most unexpected places.",
+        img: "",
+      },
+    ],
+  },
 ];
 
 let stories = [
@@ -565,8 +565,8 @@ function displayStory() {
 
   readAloud(storyContent);
 
-  const continueButton = document.getElementById("continue-button");
-  continueButton.style.display = "inline";
+  // const continueButton = document.getElementById("continue-button");
+  // continueButton.style.display = "inline";
 
   chatContainer.scrollTop = chatContainer.scrollHeight;
 
@@ -659,6 +659,7 @@ function continueVideo() {
   const storyGenerationContainer = document.getElementById(
     "story-generation-container"
   );
+  console.log("continue");
 
   if (video.style.display === "block") {
     video.pause();
@@ -668,7 +669,6 @@ function continueVideo() {
     submitButton.style.display = "block";
     userInput.style.display = "block";
     typingGif.style.display = "block";
-    topActionBarElement.style.display = "flex";
     // Change button text to "See Video" and pause the video if needed
     continueButton.innerText = "Meet Robby";
     storyGenerationContainer.style.columnGap = "2rem";
@@ -680,7 +680,8 @@ function continueVideo() {
     submitButton.style.display = "none";
     userInput.style.display = "none";
     typingGif.style.display = "none";
-    topActionBarElement.style.display = "none";
+    continueButton.innerHTML = "Close"; // Change button text to "Close"
+
     video.play(); // Play the video
     continueButton.innerText = "Close"; // Change button text to "Close"
     storyGenerationContainer.style.columnGap = "0rem";
