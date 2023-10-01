@@ -316,7 +316,7 @@ const chatPrompts = {
     {
       question:
         "What challenges or obstacles do they face on their journey to find a dentist in the candy planet? Are there any fun or exciting moments along the way?",
-      answer: "They see different candy on different planets",
+      answer: "they met the toothworm king, but succeeded in defeating him",
     },
   ],
   nick: [
